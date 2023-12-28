@@ -42,7 +42,8 @@ with container_2:
     df_casos_filtrado = df_casos[muni]
 
     casos=df_casos_filtrado.tail(7).sum()
-    
+
+    col1.metric(label="Teste", value=casos)
 
 
     
