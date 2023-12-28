@@ -34,5 +34,5 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 
 with container_2:
-    col1, col2, col3 = st.columns([1,1,1])
+    col1, col2, col3 = st.columns([5,1,1])
     col1.metric("Temperature", "70 °F", "1.2 °F")
