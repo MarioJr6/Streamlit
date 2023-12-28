@@ -41,9 +41,7 @@ with container_2:
     df_esgoto_filtrado = df_esgoto[filtro]
     df_casos_filtrado = df_casos[muni]
 
-    casos=df_casos_filtrado.tail(7).sum()
-
-    col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", value=casos)
+    col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", value=df_casos_filtrado.tail(7).sum())
 
 
     
