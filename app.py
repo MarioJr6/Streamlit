@@ -36,4 +36,6 @@ container_2 = st.container()
 with container_2:
     col1, col2, col3 = st.columns(3)
     col1.metric("Temperature", "70 °F", "1.2 °F")
+    col2.metric("Temperature", "70 °F", "1.2 °F")
+    col3.metric("Temperature", "70 °F", "1.2 °F")
     style_metric_cards(border_left_color="#DBF227")
