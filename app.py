@@ -35,7 +35,7 @@ container_2 = st.container()
 with container_2:
     col1, col2, col3 = st.columns([1,2,2])
     muni = col1.selectbox('Selecione o município', municipio)
-    col1.write('Município selecionado:', muni)
+    st.write('Município selecionado:', muni)
     
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
