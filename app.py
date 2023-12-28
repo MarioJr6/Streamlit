@@ -42,4 +42,4 @@ with container_2:
     df_casos_filtrado = df_casos_filtrado[df_esgoto['MUNICIPIO'] == muni]
     
     casos = df['DATA_SINTOMAS'].tail(7).sum()
-    st.metric(label="Total de casos", value=casos)
+    col2.metric(label="Total de casos", value=casos)
