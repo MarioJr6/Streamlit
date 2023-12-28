@@ -11,6 +11,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state='collapsed'
 )
+style_metric_cards(border_left_color="#DBF227")
 
 container_1 = st.container()
 with container_1: 
@@ -37,4 +38,4 @@ with container_2:
     col1, col2, col3 = st.columns(3)
     col1.metric(label="Gas price", value=4, delta=-0.5,
     delta_color="inverse")
-    style_metric_cards(border_left_color="#DBF227")
+    
