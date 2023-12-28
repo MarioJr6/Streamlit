@@ -34,5 +34,5 @@ df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 with container_2: 
-    col1, col2, col3 = st.columns([1,1,1])
+    col1, col2, col3 = st.columns([3])
     col1.metric('teste')
