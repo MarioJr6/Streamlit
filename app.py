@@ -43,7 +43,7 @@ with container_2:
 
     casos=df_casos_filtrado.tail(7).sum()
 
-    col2.metric(label="Teste", value=casos)
+    col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", value=casos)
 
 
     
