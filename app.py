@@ -37,4 +37,4 @@ with container_2:
     col1, col2, col3 = st.columns(3)
     col1.metric(label="Gas price", value=4, delta=-0.5,
     delta_color="inverse")
-   
+    style_metric_cards(border_left_color="#DBF227")
