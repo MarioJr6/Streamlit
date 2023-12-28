@@ -35,18 +35,6 @@ container_2 = st.container()
 
 with container_2:
     col1, col2, col3 = st.columns(3)
-      # Utilize HTML para aplicar um estilo de centralização
-    col1.markdown(
-        f'<p style="text-align:center;">Temperature<br>70 °F<br>1.2 °F</p>',
-        unsafe_allow_html=True
-    )
-
-    col2.markdown(
-        f'<p style="text-align:center;">Temperature<br>70 °F<br>1.2 °F</p>',
-        unsafe_allow_html=True
-    )
-
-    col3.markdown(
-        f'<p style="text-align:center;">Temperature<br>70 °F<br>1.2 °F</p>',
-        unsafe_allow_html=True
-    )
+    col1.metric(label="Gas price", value=4, delta=-0.5,
+    delta_color="inverse")
+   
