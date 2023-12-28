@@ -34,7 +34,8 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 with container_2:
     col1, col2, col3 = st.columns(3)
-    muni = st.selectbox('Selecione o município', municipio)
-    col1.write('Município selecionado:', muni)
+   
+    muni = col1.selectbox('Selecione o município', municipio)
+    st.write('Município selecionado:', muni)
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
