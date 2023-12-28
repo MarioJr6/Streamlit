@@ -42,6 +42,8 @@ with container_2:
     
     df_casos_filtrado = df_casos[muni]
 
+    df_casos_filtrado
+
     df_casos
     
     
