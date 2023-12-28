@@ -32,19 +32,9 @@ df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 container_2 = st.container() 
-
 with container_2:
-    
     col1, col2, col3 = st.columns(3)
-    
     muni = st.selectbox('Selecione o município', municipio)
     col1.write('Município selecionado:', muni)
-
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
-
-    
-    
-    #7_dias = df['casos_diarios'].tail(7).sum()
-  
-   
