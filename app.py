@@ -5,3 +5,10 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
 
+
+
+dash_1 = st.container()
+
+with dash_1:
+    st.markdown("<h2 style='text-align: center;'>Superstore Sales Dashboard</h2>", unsafe_allow_html=True)
+    st.write("")
