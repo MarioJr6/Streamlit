@@ -39,7 +39,7 @@ with container_2:
     st.write('Município selecionado:', muni)
     
     #df_esgoto_filtrado = df_esgoto[df_esgoto['Município'] == muni]
-    #df_casos_filtrado = df_casos_filtrado[df_esgoto['MUNICIPIO'] == muni]
+    df_casos_filtrado = df_casos_filtrado[df_esgoto['MUNICIPIO'] == muni]
     
-    casos = df['DATA_SINTOMAS'].tail(7).sum()
+    casos = df_casos_filtrado['DATA_SINTOMAS'].tail(7).sum()
     col2.metric(label="Total de casos", value=casos)
