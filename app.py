@@ -36,7 +36,7 @@ container_2 = st.container()
 with container_2:
     col1, col2, col3 = st.columns(3)
  # Defina o alinhamento horizontal para o centro para cada coluna
-    col1.metric("Temperature", "70 °F", "1.2 °F", key="metric_1", justify="center")
-    col2.metric("Temperature", "70 °F", "1.2 °F", key="metric_2", justify="center")
-    col3.metric("Temperature", "70 °F", "1.2 °F", key="metric_3", justify="center")
+    col1.metric("Temperature", "70 °F", "1.2 °F",justify="center")
+    col2.metric("Temperature", "70 °F", "1.2 °F",justify="center")
+    col3.metric("Temperature", "70 °F", "1.2 °F",justify="center")
     #style_metric_cards(border_left_color="#DBF227")
