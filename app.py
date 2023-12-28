@@ -7,7 +7,7 @@ import streamlit as st
 
 dash_1 = st.container()
 with dash_1:
-    st.markdown("<h2 style='text-align: center;'>Superstore Sales Dashboard</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Painel de Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
     st.write("")
 
 
