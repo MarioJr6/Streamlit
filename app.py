@@ -8,6 +8,8 @@ import streamlit as st
 dash_1 = st.container()
 with dash_1:
     st.markdown("<h2 style='text-align: center;'>Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
+    st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20CEVS.png?raw=true', width=200)
+        
     st.write("")
 
 
