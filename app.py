@@ -12,7 +12,13 @@ st.set_page_config(
     initial_sidebar_state='collapsed'
 )
 
+col1, col2 = st.columns([1,1])
+
 container_1 = st.container()
 
 with container_1: 
     st.markdown("<h2 style='text-align: center;'>Painel de Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
+
+col1, col2= st.columns([1,4,1])
+col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20CEVS.png?raw=true', width=200)
+col2.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
