@@ -34,7 +34,6 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 with container_2:
     col1, col2, col3 = st.columns([1,2,2])
-   
     muni = col1.selectbox('Selecione o município', municipio)
     st.write('Município selecionado:', muni)
     
@@ -42,7 +41,5 @@ with container_2:
     df_esgoto_filtrado = df_esgoto[filtro]
     
     df_casos_filtrado = df_casos[muni]
-
-    casos = df_casos_filtrado[muni].tail(7).sum()
-   
-    #col2.metric(label="Total de casos", value=df_casos_filtrado[muni].tail(7).sum())
+    
+    casos = df_casos_filtrado[muni].tail(7).iloc[0]
