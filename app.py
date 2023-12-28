@@ -42,8 +42,9 @@ with container_2:
     df_esgoto_filtrado = df_esgoto[filtro]
     
     df_casos_filtrado = df_casos[muni]
-    
-    casos = df_casos_filtrado[muni].tail(7).sum()
+
+    df_casos_filtrado
+    #casos = df_casos_filtrado[muni].tail(7).sum()
 
     
     #col2.metric(label="Total de casos", value=casos)
