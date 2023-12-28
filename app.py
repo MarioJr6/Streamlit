@@ -34,9 +34,17 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 
 with container_2:
+    
     col1, col2, col3 = st.columns(3)
-    col1.metric(label="Gas price", value=4, delta=-0.5,delta_color="inverse")
-    col2.metric(label="Outra métrica", value=10, delta=1, delta_color="normal")
-    col3.metric(label="Mais uma métrica", value=50, delta=-5, delta_color="inverse")
+    
+    muni = st.selectbox('Selecione o município', municipio)
+    col1.write('Município selecionado:', muni)
+
+    filtro = df_esgoto['Município']==muni
+    df_esgoto_filtrado = df_esgoto[filtro]
+
+    
+    
+    #7_dias = df['casos_diarios'].tail(7).sum()
   
-    #style_metric_cards(border_left_color="#DBF227")
+   
