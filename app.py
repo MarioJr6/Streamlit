@@ -32,4 +32,4 @@ df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 container_2 = st.container() 
-with container_2:
+
