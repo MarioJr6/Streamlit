@@ -40,7 +40,7 @@ with container_2:
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
     
-    #df_casos_filtrado = df_casos[muni]
+    df_casos_filtrado = df_casos[muni]
 
     df_casos
     
