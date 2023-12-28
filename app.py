@@ -38,8 +38,8 @@ with container_2:
     muni = col1.selectbox('Selecione o município', municipio)
     st.write('Município selecionado:', muni)
     
-    #df_esgoto_filtrado = df_esgoto[df_esgoto['Município'] == muni]
-    df_casos_filtrado = df_casos[df_casos['MUNICIPIO'] == muni]
-    
-    casos = df_casos_filtrado['DATA_SINTOMAS'].tail(7).sum()
-    col2.metric(label="Total de casos", value=casos)
+    filtro = df_esgoto['Município']==muni
+    df_esgoto_filtrado = df_esgoto[filtro]
+
+    #casos = df_casos_filtrado['DATA_SINTOMAS'].tail(7).sum()
+    #col2.metric(label="Total de casos", value=casos)
