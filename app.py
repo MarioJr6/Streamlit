@@ -38,4 +38,4 @@ with container_2:
     col1.metric("Temperature", "70 °F", "1.2 °F")
     col2.metric("Temperature", "70 °F", "1.2 °F")
     col3.metric("Temperature", "70 °F", "1.2 °F")
-    style_metric_cards(border_left_color="#DBF227")
+    #style_metric_cards(border_left_color="#DBF227")
