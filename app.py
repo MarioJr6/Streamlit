@@ -38,15 +38,5 @@ with container_2:
     col1.metric(label="Gas price", value=4, delta=-0.5,delta_color="inverse")
     col2.metric(label="Outra métrica", value=10, delta=1, delta_color="normal")
     col3.metric(label="Mais uma métrica", value=50, delta=-5, delta_color="inverse")
-    st.markdown(
-        f"""
-        <style>
-        .stMetric:nth-child(1) .metric {
-            border-left: 5px solid #DBF227 !important;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
   
     #style_metric_cards(border_left_color="#DBF227")
