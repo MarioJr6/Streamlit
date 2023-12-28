@@ -11,6 +11,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state='collapsed'
 )
+col1, col2, col3 = st.columns([1, 4, 1])
+
 # Centralizando o título
 with col2:
     st.title('Painel de Monitoramento Ambiental de SARS-CoV-2')
