@@ -52,7 +52,7 @@ with container_2:
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     
     st.write("Última da última análise ambiental :", lista[-1])
-    df_esgoto_filtrado
+    df_esgoto2
 
 
     
