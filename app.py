@@ -49,5 +49,4 @@ with container_2:
 
     col4.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
                 value=df_esgoto_filtrado['Data de coleta'].iloc[0])
-    print('teste')
-    df_esgoto_filtrado
+    
