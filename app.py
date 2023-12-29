@@ -48,7 +48,7 @@ with container_2:
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
 
     col4.metric(label="Data da última análise ambiental", 
-                value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
+                value=df_esgoto_filtrado['Data de coleta'].iloc[-1])
 
 
     df_esgoto_filtrado
