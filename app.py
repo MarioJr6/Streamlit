@@ -48,7 +48,18 @@ with container_2:
     col3.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     
-    lista
+    lista_datas = []
+    
+    for timestamp_str in lista:
+    # Encontrando a data na string usando a expressão regular
+    match = re.search(padrao, timestamp_str)
+    if match:
+        # Convertendo a string da data para um objeto Timestamp
+        timestamp = Timestamp(match.group())
+        # Extraindo a parte da data e adicionando à lista de datas
+        lista_datas.append(timestamp.date())
+    
+    lista_datas 
 
     df_esgoto_filtrado
     
