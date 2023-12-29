@@ -44,8 +44,8 @@ with container_2:
     col2.metric(label="  Casos de COVID 19 confirmados nos últimos 7 dias  ", 
                 value=df_casos_filtrado.tail(7).sum())
     
-    #col3.metric(label="  Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto  ", 
-                #value=df_esgoto_filtrado[')
+    col3.metric(label="  Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto  ", 
+                value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
 
     
     df_casos_filtrado
