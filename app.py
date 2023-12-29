@@ -50,8 +50,11 @@ with container_2:
                 value=df_casos_filtrado.tail(7).sum())
     col3.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
-    
-    st.write("Última da última análise ambiental :", lista[-1])
+    col4.metric((label="Data da última análise ambiental ", 
+                value=lista[-1])
+
+
+    st.write("Data da última análise ambiental :", lista[-1])
     df_esgoto2
 
 
