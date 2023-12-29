@@ -48,7 +48,7 @@ with container_2:
     col3.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     
-    st.write("Data formatada:", lista[-1])
+    st.write("Última da última análise ambiental :", lista[-1])
     
     df_esgoto_filtrado
     
