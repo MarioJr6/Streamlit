@@ -40,8 +40,11 @@ with container_2:
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
     df_casos_filtrado = df_casos[muni]
-
-    lista = df_esgoto_filtrado['Data de coleta'].tolist()
+    
+    # Manipulação do meu data frame df_esgoto_filtrado
+    df_esgoto2 = df_esgoto_filtrado.copy()
+    df_esgoto2['Data de coleta']=df_esgoto2['Data de coleta'].astype(str)
+    lista = df_esgoto2['Data de coleta'].tolist()
 
     col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value=df_casos_filtrado.tail(7).sum())
@@ -49,11 +52,7 @@ with container_2:
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     
     st.write("Última da última análise ambiental :", lista[-1])
-    
     df_esgoto_filtrado
-    
 
 
-    
-   
     
