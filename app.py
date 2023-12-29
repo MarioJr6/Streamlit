@@ -39,20 +39,17 @@ with container_2:
     
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
-    
     df_casos_filtrado = df_casos[muni]
 
     col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value=df_casos_filtrado.tail(7).sum())
-    
     col3.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
-    
-    formatos=df_esgoto_filtrado.dtypes
 
-    formato_data = formatos['Data de coleta']
-
-    st.write("Formato do dado", formato_data)
+    df_esgoto_filtrado
     
-    #col4.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", value=df_esgoto_filtrado['Data de coleta'].tail(0).values[0])
+
+
+    
+   
     
