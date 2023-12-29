@@ -26,7 +26,7 @@ df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfj
 municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', 'SANTA ROSA', 'SÃO LEOPOLDO', 'TORRES']
 
 #df_esgoto['Data de coleta']=pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
-df_esgoto=df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
+#df_esgoto=df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
 fig = make_subplots(specs=[[{"secondary_y": True}]])
