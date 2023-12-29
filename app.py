@@ -51,7 +51,7 @@ with container_2:
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
 
 
-    data_esgoto
+    df_esgoto
     
 
     
