@@ -49,9 +49,9 @@ with container_2:
     col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value=df_casos_filtrado.tail(7).sum())
     #col3.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
-                value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
+                #value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     #col4.metric(label="Data da última análise ambiental", 
-                value=lista[-1])
+                #value=lista[-1])
 
     fig = fig.add_trace(
       go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos diários", mode="lines"),
