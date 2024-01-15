@@ -70,8 +70,7 @@ with container_2:
           secondary_y=False, 
     )
     
-    fig.update_yaxes(title_text="Carga viral N1 (cópias genômicas/L)", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
-    #fig.update_yaxes(title_text="Casos confirmados", secondary_y=True, range=[0,df_casos[muni].max()*1.2])
+    fig.update_yaxes(title_text="<b>Carga viral N1 (cópias genômicas/L)</b>", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
     fig.update_yaxes(title_text="<b>Casos confirmados</b>", secondary_y=True, range=[0, df_casos[muni].max()*1.2])
 
 
