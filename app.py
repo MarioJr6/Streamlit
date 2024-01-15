@@ -81,7 +81,3 @@ with container_2:
     col1.plotly_chart(fig)
     col1.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
     st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
-
-    col5 = st.column()  # Criar uma nova coluna
-    col5.write("Texto ou elementos adicionais à direita da imagem")
-    col5.button("Botão de Exemplo")
