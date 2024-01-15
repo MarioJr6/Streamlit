@@ -57,7 +57,7 @@ with container_2:
     col4.metric(label="Data da última análise ambiental", 
                 value=lista[-1])
     
-    style_metric_cards(border_left_color="#DBF227")
+    style_metric_cards(border_left_color="#FF0000")
 
     fig = fig.add_trace(
       go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos diários", mode="lines"),
