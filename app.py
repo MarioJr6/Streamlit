@@ -70,8 +70,8 @@ with container_2:
           secondary_y=False, 
     )
     
-    fig.update_yaxes(title_text="Carga viral", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
-    fig.update_yaxes(title_text="Casos diários", secondary_y=True, range=[0,df_casos[muni].max()*1.2])
+    fig.update_yaxes(title_text="Carga viral N1 (cópias genômicas/L)", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
+    fig.update_yaxes(title_text="Casos confirmados", secondary_y=True, range=[0,df_casos[muni].max()*1.2])
 
     # Atualize o layout do gráfico para ocupar toda a largura disponível
     fig.update_layout(
