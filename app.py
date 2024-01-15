@@ -57,7 +57,7 @@ with container_2:
     col4.metric(label="Data da última análise ambiental", 
                 value=lista[-1])
 
-    col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png',width=200)
+    col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png',width=500)
     
     style_metric_cards(border_left_color="#FF0000")
 
