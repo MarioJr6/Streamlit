@@ -5,7 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 from plotly.subplots import make_subplots
-#from streamlit_extras.metric_cards import style_metric_cards
+from streamlit_extras.metric_cards import style_metric_cards
 
 st.set_page_config(
     page_title="Painel de Monitoramento Ambiental de SARS-CoV-2",
