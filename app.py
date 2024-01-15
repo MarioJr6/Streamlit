@@ -56,6 +56,8 @@ with container_2:
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     col4.metric(label="Data da última análise ambiental", 
                 value=lista[-1])
+
+    col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png',width=200)
     
     style_metric_cards(border_left_color="#FF0000")
 
