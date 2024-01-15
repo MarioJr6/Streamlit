@@ -78,12 +78,7 @@ with container_2:
  fig.update_layout(
         width=1800,  # Definir uma largura fixa
         height=600,  # Definir uma altura fixa
-        xaxis=dict(
-            tickmode='array',
-            tickvals=df_esgoto_filtrado['Data de coleta'],
-            ticktext=[f"<b>{data}</b>" for data in lista],
-            title_text="<b>Data de Coleta</b>",  # Adicione um título ao eixo X formatado em negrito
-        ),
+
     )
-    
+ 
     st.plotly_chart(fig)
