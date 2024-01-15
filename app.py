@@ -77,7 +77,9 @@ with container_2:
         width=1800,  # Definir uma largura fixa
         height=600,  # Definir uma altura fixa
     )
-
-    st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png', caption="Legenda da Imagem", use_column_width=True)
     
     st.plotly_chart(fig)
+    
+    st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', caption='Sua legenda aqui', use_column_width=True)
+
+    #col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
