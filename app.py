@@ -78,7 +78,7 @@ with container_2:
         height=600,  # Definir uma altura fixa
     )
     
-    col1.plotly_chart(fig)
+    col2.plotly_chart(fig)
     col2.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
     st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
