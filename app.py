@@ -79,7 +79,7 @@ with container_2:
     )
     
     st.plotly_chart(fig)
-    col2.write("Este é um exemplo simples de como adicionar uma imagem a um painel Streamlit.")
+    st.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
     st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
     #col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
