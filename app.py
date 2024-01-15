@@ -56,6 +56,8 @@ with container_2:
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     col4.metric(label="Data da última análise ambiental", 
                 value=lista[-1])
+    
+    style_metric_cards(border_left_color="#DBF227")
 
     fig = fig.add_trace(
       go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos diários", mode="lines"),
