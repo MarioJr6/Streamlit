@@ -75,10 +75,9 @@ with container_2:
 
 
     # Atualize o layout do gráfico para ocupar toda a largura disponível
- fig.update_layout(
+    fig.update_layout(
         width=1800,  # Definir uma largura fixa
         height=600,  # Definir uma altura fixa
-
     )
  
     st.plotly_chart(fig)
