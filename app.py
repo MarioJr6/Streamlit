@@ -77,9 +77,11 @@ with container_2:
         width=1800,  # Definir uma largura fixa
         height=600,  # Definir uma altura fixa
     )
-    
+
     col1.plotly_chart(fig)
     col1.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
     st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
-    #col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
+    col5 = st.column()  # Criar uma nova coluna
+    col5.write("Texto ou elementos adicionais à direita da imagem")
+    col5.button("Botão de Exemplo")
