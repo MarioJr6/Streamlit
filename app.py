@@ -26,7 +26,6 @@ with container_1:
 df_casos = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vSB6M4e3McfIwkph-nzq_SefdhzGx_6ycMmj8SHTzcXYrkUMe1P7Nza6BpKPva_HUhpDXBgwKXrHREx/pub?output=tsv')
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
 
-# Retirei São Leopoldo até o momento, pois o mesmo não possui coletas realizadas, somente casos
 municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', 'SANTA ROSA', 'TORRES']
 
 df_esgoto['Data de coleta']=pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
@@ -56,8 +55,6 @@ with container_2:
                 value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     col4.metric(label="Data da última análise ambiental", 
                 value=lista[-1])
-
-    col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png',width=500)
     
     style_metric_cards(border_left_color="#FF0000")
 
@@ -71,15 +68,16 @@ with container_2:
           marker=dict(color='red')),
           secondary_y=False, 
     )
-    
+
     fig.update_yaxes(title_text="<b>Carga viral N1 (cópias genômicas/L)</b>", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
     fig.update_yaxes(title_text="<b>Casos confirmados</b>", secondary_y=True, range=[0, df_casos[muni].max()*1.2])
-
 
     # Atualize o layout do gráfico para ocupar toda a largura disponível
     fig.update_layout(
         width=1800,  # Definir uma largura fixa
         height=600,  # Definir uma altura fixa
     )
- 
+
+    st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png', caption="Legenda da Imagem", use_column_width=True)
+    
     st.plotly_chart(fig)
