@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
 
+#
 st.set_page_config(
     page_title="Painel de Monitoramento Ambiental de SARS-CoV-2",
     page_icon="	:snake:",
@@ -23,7 +24,8 @@ with container_1:
 df_casos = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vSB6M4e3McfIwkph-nzq_SefdhzGx_6ycMmj8SHTzcXYrkUMe1P7Nza6BpKPva_HUhpDXBgwKXrHREx/pub?output=tsv')
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
 
-municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', 'SANTA ROSA', 'SÃO LEOPOLDO', 'TORRES']
+# Retirei São Leopoldo até o momento, pois o mesmo não possui coletas realizadas, somente casos
+municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', 'SANTA ROSA', 'TORRES']
 
 df_esgoto['Data de coleta']=pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
 df_esgoto=df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
@@ -48,10 +50,10 @@ with container_2:
 
     col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value=df_casos_filtrado.tail(7).sum())
-    #col3.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
-                #value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
-    #col4.metric(label="Data da última análise ambiental", 
-                #value=lista[-1])
+    col3.metric(label="Carga Viral (CG/L) de SARS-CoV-2 na ultima amostra de esgoto", 
+                value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
+    col4.metric(label="Data da última análise ambiental", 
+                value=lista[-1])
 
     fig = fig.add_trace(
       go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos diários", mode="lines"),
