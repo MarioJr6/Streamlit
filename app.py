@@ -79,7 +79,7 @@ with container_2:
     )
     
     col1.plotly_chart(fig)
-    st.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
+    col2.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
     st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
     #col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
