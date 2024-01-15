@@ -67,6 +67,7 @@ with container_2:
           go.Bar(x=df_esgoto_filtrado['Data de coleta'], y=df_esgoto_filtrado['carga_viral_n1'], name="Carga Viral no esgoto",
                  ),
           secondary_y=False,
+          marker=dict(color='red')
       )
     fig.update_yaxes(title_text="Carga viral", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
     fig.update_yaxes(title_text="Casos diários", secondary_y=True, range=[0,df_casos[muni].max()*1.2])
