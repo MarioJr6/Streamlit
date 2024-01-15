@@ -60,12 +60,12 @@ with container_2:
     style_metric_cards(border_left_color="#FF0000")
 
     fig = fig.add_trace(
-      go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos diários", mode="lines"),
+      go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos confirmados", mode="lines"),
       secondary_y=True,
       )
     
     fig = fig.add_trace(
-          go.Bar(x=df_esgoto_filtrado['Data de coleta'], y=df_esgoto_filtrado['carga_viral_n1'], name="Carga Viral no esgoto",
+          go.Bar(x=df_esgoto_filtrado['Data de coleta'], y=df_esgoto_filtrado['carga_viral_n1'], name="Carga viral N1 (cópias genômicas/L)",
           marker=dict(color='red')),
           secondary_y=False, 
     )
