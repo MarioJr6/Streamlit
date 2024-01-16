@@ -97,5 +97,5 @@ with container_2:
         matriz['Variação'] = matriz['carga_viral_n1'].pct_change() * 100
         
 
-        col2.table(tabela)
+        col2.table(matriz)
     
