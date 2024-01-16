@@ -86,6 +86,13 @@ with container_2:
         col1.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
         col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
-        col2.table(df_esgoto_filtrado)
+        tabela = df_esgoto_filtrado.copy()
+
+        tabela['Mês'] = tabela['Data de coleta'].dt.month
+
+        
+        
+
+        col2.table(tabela)
         
         
