@@ -90,13 +90,11 @@ with container_2:
         tabela = df_esgoto_filtrado.copy()
         tabela['Mês'] = tabela['Data de coleta'].dt.month
         tabela = tabela.drop('Data de coleta', axis=1)
-
-        #matriz = tabela.groupby('Mês').sum().reset_index()
         
         matriz = tabela.groupby('Mês').mean().reset_index()
         
-       # matriz['Variação bruta'] = matriz['carga_viral_n1'].diff()
-       # matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
+        matriz['Variação bruta'] = matriz['carga_viral_n1'].diff()
+        matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
         
 
         col2.table(matriz)
