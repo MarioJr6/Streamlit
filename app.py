@@ -83,7 +83,7 @@ with container_2:
     container_3 = st.container()
     with container_3: 
         col1, col2, col3, col4 = st.columns([1,2,1,1])
-        col1.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
+        col1.write("Análises ambintais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
         col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
         
         #Tratamento para a tabela que mostrará a variação mensal
@@ -91,11 +91,12 @@ with container_2:
         tabela['Mês'] = tabela['Data de coleta'].dt.month
         tabela = tabela.drop('Data de coleta', axis=1)
 
-        matriz = tabela.groupby('Mês').sum().reset_index()
-
-        matriz['Variação bruta'] = matriz['carga_viral_n1'].diff()
-        matriz['Variação'] = matriz['carga_viral_n1'].pct_change() * 100
+        #matriz = tabela.groupby('Mês').sum().reset_index()
+        
+        matriz = tabela.groupby('Mês').mean().reset_index()
+        
+       # matriz['Variação bruta'] = matriz['carga_viral_n1'].diff()
+       # matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
         
 
         col2.table(matriz)
-    
