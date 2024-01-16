@@ -84,7 +84,7 @@ with container_2:
     with container_3: 
         col1, col2, col3, col4 = st.columns([1,1,1,1])
         col1.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
-        st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=100)
+        col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=100)
         
         
 
