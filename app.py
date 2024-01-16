@@ -93,6 +93,8 @@ with container_2:
 
         matriz = tabela.groupby('Mês').sum().reset_index()
 
+        df['Variação'] = matriz['carga_viral_n1'].pct_change() * 100
+        
 
         col2.table(matriz)
     
