@@ -96,7 +96,7 @@ with container_2:
         matriz['Variação bruta'] = matriz['carga_viral_n1'].diff()
         matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
 
-        matriz = matriz.rename(columns={'Média da carga viral mensal':'carga_viral_n1'})
+        matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
         
         
