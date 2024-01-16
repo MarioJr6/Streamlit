@@ -100,3 +100,5 @@ with container_2:
         
 
         col2.table(matriz)
+
+        col2.table(tabela)
