@@ -93,6 +93,7 @@ with container_2:
 
         matriz = tabela.groupby('Mês').sum().reset_index()
 
+        matriz['Variação bruta'] = matriz['carga_viral_n1'].diff()
         matriz['Variação'] = matriz['carga_viral_n1'].pct_change() * 100
         
 
