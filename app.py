@@ -93,6 +93,4 @@ with container_2:
 
         #matriz = tabela.groupby('Mês').sum().reset_index()
 
-        st.dataframe(data='matriz')
-        
         #st.dataframe(data='matriz')
