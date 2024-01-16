@@ -92,5 +92,7 @@ with container_2:
         tabela = tabela.drop('Data de coleta', axis=1)
 
         matriz = tabela.groupby('Mês').sum().reset_index()
+
         
-        col2.table(matriz.style.hide_index())
+        
+        col2.dataframe(data='matriz', hide_index=None)
