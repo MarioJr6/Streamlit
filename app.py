@@ -89,7 +89,7 @@ with container_2:
         tabela = df_esgoto_filtrado.copy()
         tabela['Mês'] = tabela['Data de coleta'].dt.month
 
-        tabela
+        col2.tabela
         
         
 
