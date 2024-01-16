@@ -86,6 +86,6 @@ with container_2:
         col1.write("Análises ambintais realizadas pelo Laboratório Virologia do ICBS UFRGS")
         st.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=100)
         
-        col3.table(df_esgoto)
+        
 
 
