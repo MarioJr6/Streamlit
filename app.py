@@ -92,7 +92,7 @@ with container_2:
         tabela = tabela.drop('Data de coleta', axis=1)
 
         
-        matriz = tabela.groupby('Mês')
+        matriz = tabela.groupby('Mês').sum()
 
         
 
