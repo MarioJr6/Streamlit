@@ -87,12 +87,12 @@ with container_2:
         col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
         tabela = df_esgoto_filtrado.copy()
-
         tabela['Mês'] = tabela['Data de coleta'].dt.month
 
+        tabela
         
         
 
-        col2.table(tabela)
+        
         
         
