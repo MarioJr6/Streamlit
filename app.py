@@ -95,4 +95,4 @@ with container_2:
 
         
         
-        st.dataframe(data='matriz')
+        #st.dataframe(data='matriz')
