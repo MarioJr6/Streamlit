@@ -91,6 +91,8 @@ with container_2:
         tabela['Mês'] = tabela['Data de coleta'].dt.month
         tabela = tabela.drop('Data de coleta', axis=1)
 
-        #matriz = tabela.groupby('Mês').sum().reset_index()
+        matriz = tabela.groupby('Mês').sum().reset_index()
 
-        #st.dataframe(data='matriz')
+
+        col2.table(matriz)
+    
