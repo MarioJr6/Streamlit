@@ -74,6 +74,7 @@ with container_2:
 
     # Atualize o layout do gráfico para ocupar toda a largura disponível
     fig.update_layout(
+        title="<b>Carga viral no esgoto bruto e Casos de COVID 19 em Porto Alegre</b>",
         width=1800,  # Definir uma largura fixa
         height=600,  # Definir uma altura fixa
     )
@@ -93,11 +94,9 @@ with container_2:
         
         matriz = tabela.groupby('Mês').mean().reset_index()
         
-        matriz['Variação bruta'] = matriz['carga_viral_n1'].diff()
+        matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
         matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
 
         matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
-        
-        
         col2.table(matriz)
