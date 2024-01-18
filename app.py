@@ -75,7 +75,6 @@ with container_2:
     # Atualize o layout do gráfico para ocupar toda a largura disponível
     fig.update_layout(
         title="Carga viral no esgoto bruto e Casos de COVID 19 em Porto Alegre",
-        title_x=0.28,
         width=1800,  # Definir uma largura fixa
         height=500,  # Definir uma altura fixa
     )
