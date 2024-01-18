@@ -77,7 +77,7 @@ with container_2:
         title="Carga viral no esgoto bruto e Casos de COVID 19 em Porto Alegre",
         title_x=0.28,
         width=1800,  # Definir uma largura fixa
-        height=600,  # Definir uma altura fixa
+        height=500,  # Definir uma altura fixa
     )
     
     col1.plotly_chart(fig)
