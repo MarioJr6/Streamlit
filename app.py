@@ -72,11 +72,9 @@ with container_2:
     fig.update_yaxes(title_text="<b>Carga viral N1 (cópias genômicas/L)</b>", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
     fig.update_yaxes(title_text="<b>Casos confirmados</b>", secondary_y=True, range=[0, df_casos[muni].max()*1.2])
 
-    fig.suptitle("teste")
-
     # Atualize o layout do gráfico para ocupar toda a largura disponível
     fig.update_layout(
-        #title="Carga viral no esgoto bruto e Casos de COVID 19 em Porto Alegre",
+        title="Carga viral no esgoto bruto e Casos de COVID 19 em Porto Alegre",
         width=1800,  # Definir uma largura fixa
         height=560,  # Definir uma altura fixa
     )
