@@ -70,7 +70,7 @@ with container_2:
     )
 
     fig = fig.update_layout(
-          title_text="Double Y Axis Example"
+          title_text="Carga viral no esgoto bruto e Casos de COVID 19 em Porto Alegre"
     )
 
     fig.update_yaxes(title_text="<b>Carga viral N1 (cópias genômicas/L)</b>", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
