@@ -84,6 +84,8 @@ with container_2:
     )
     
     col1.plotly_chart(fig)
+
+    
     
     col4.write("")
     col4.write("")
@@ -94,6 +96,19 @@ with container_2:
     col4.write("")
     col4.write("")
     col4.write("")
+
+    tabela = df_esgoto_filtrado.copy()
+    tabela['Mês'] = tabela['Data de coleta'].dt.month
+    tabela = tabela.drop('Data de coleta', axis=1)
+
+    matriz = tabela.groupby('Mês').mean().reset_index()
+        
+    matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
+    matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
+
+    matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
+
+    col4.table(matriz)
     
     col4.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
@@ -104,15 +119,15 @@ with container_2:
         col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
         
         #Tratamento para a tabela que mostrará a variação mensal
-        tabela = df_esgoto_filtrado.copy()
-        tabela['Mês'] = tabela['Data de coleta'].dt.month
-        tabela = tabela.drop('Data de coleta', axis=1)
+        #tabela = df_esgoto_filtrado.copy()
+        #tabela['Mês'] = tabela['Data de coleta'].dt.month
+        #tabela = tabela.drop('Data de coleta', axis=1)
         
-        matriz = tabela.groupby('Mês').mean().reset_index()
+        #matriz = tabela.groupby('Mês').mean().reset_index()
         
-        matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
-        matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
+        #matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
+        #matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
 
-        matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
+        #matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
-        col2.table(matriz)
+        #col2.table(matriz)
