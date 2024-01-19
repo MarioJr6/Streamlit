@@ -41,7 +41,7 @@ with container_2:
         <style>
             div[data-baseweb="select"] {
                 background-color: #3498db;
-                color: white;
+                color: blue;
                 border-radius: 5px;
             }
             div[data-baseweb="select"] div {
