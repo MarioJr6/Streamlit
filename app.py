@@ -40,7 +40,7 @@ with container_2:
         """
         <style>
             div[data-baseweb="select"] {
-                background-color: #3498db;
+                background-color: #FF0000;
                 color: white;
                 border-radius: 5px;
             }
