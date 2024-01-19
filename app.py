@@ -38,7 +38,7 @@ container_2 = st.container()
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     muni = col1.selectbox('Selecione o município', municipio)
-    st.write('Município selecionado:', muni)
+    col1.write('Município selecionado:', muni)
     
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
@@ -106,7 +106,3 @@ with container_2:
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
     col4.table(matriz)
-    #col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
-
-    container_3 = st.container()
-    #with container_3: 
