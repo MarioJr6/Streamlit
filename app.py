@@ -92,7 +92,7 @@ with container_2:
     col4.write("Análises ambientais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
     col4.write('Município selecionado: {}'.format(muni))
     
-    col4.write("")
+    #col4.write("")
 
     tabela = df_esgoto_filtrado.copy()
     tabela['Mês'] = tabela['Data de coleta'].dt.month
