@@ -94,16 +94,6 @@ with container_2:
     
     col1.plotly_chart(fig)
 
-    col3.markdown(
-    """
-    <style>
-        img.logo {
-            margin-left: 80px;  # Ajuste este valor conforme necessário
-        }
-    </style>
-    """, unsafe_allow_html=True
-    )
-
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
     col4.write("")
