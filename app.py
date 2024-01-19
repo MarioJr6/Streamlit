@@ -85,6 +85,8 @@ with container_2:
     
     col1.plotly_chart(fig)
 
+    col2.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
+
     container_3 = st.container()
     with container_3: 
         col1, col2, col3, col4 = st.columns([1,2,1,1])
