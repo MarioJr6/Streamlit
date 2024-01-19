@@ -106,25 +106,7 @@ with container_2:
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
     col4.table(matriz)
-    
-    col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
+    #col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
     container_3 = st.container()
     with container_3: 
-        col1, col2, col3, col4 = st.columns([1,2,1,1])
-        col1.write("Análises ambintais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
-        col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
-        
-        #Tratamento para a tabela que mostrará a variação mensal
-        #tabela = df_esgoto_filtrado.copy()
-        #tabela['Mês'] = tabela['Data de coleta'].dt.month
-        #tabela = tabela.drop('Data de coleta', axis=1)
-        
-        #matriz = tabela.groupby('Mês').mean().reset_index()
-        
-        #matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
-        #matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-
-        #matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
-
-        #col2.table(matriz)
