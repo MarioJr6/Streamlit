@@ -90,8 +90,7 @@ with container_2:
     col4.write("")
     
     col4.write("Análises ambintais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
-
-    col4.write(muni)
+    col4.write("Município selecionado:", muni)
 
     col4.write("")
     col4.write("")
@@ -104,10 +103,6 @@ with container_2:
         
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
     col4.table(matriz)
-
-    col4.write("teste")
-    
