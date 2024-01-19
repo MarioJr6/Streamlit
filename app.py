@@ -22,7 +22,6 @@ with container_1:
     col2.markdown("<h2 style='text-align: center;'>Painel de Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
 
-# Leitura dos dados
 df_casos = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vSB6M4e3McfIwkph-nzq_SefdhzGx_6ycMmj8SHTzcXYrkUMe1P7Nza6BpKPva_HUhpDXBgwKXrHREx/pub?output=tsv')
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
 
@@ -37,13 +36,26 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
+     col1.markdown(
+        """
+        <style>
+            div[data-baseweb="select"] {
+                background-color: #3498db;
+                color: white;
+                border-radius: 5px;
+            }
+            div[data-baseweb="select"] div {
+                border: none !important;
+            }
+        </style>
+        """, unsafe_allow_html=True
+    )
     muni = col1.selectbox('Selecione o município', municipio)
     
     filtro = df_esgoto['Município']==muni
     df_esgoto_filtrado = df_esgoto[filtro]
     df_casos_filtrado = df_casos[muni]
     
-    # Manipulação do meu data frame df_esgoto_filtrado
     df_esgoto2 = df_esgoto_filtrado.copy()
     df_esgoto2['Data de coleta']=df_esgoto2['Data de coleta'].astype(str)
     lista = df_esgoto2['Data de coleta'].tolist()
@@ -75,9 +87,7 @@ with container_2:
     fig.update_yaxes(title_text="<b>Carga viral N1 (cópias genômicas/L)</b>", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
     fig.update_yaxes(title_text="<b>Casos confirmados</b>", secondary_y=True, range=[0, df_casos[muni].max()*1.2])
 
-    # Atualize o layout do gráfico para ocupar toda a largura disponível
     fig.update_layout(
-        #title="Carga viral no esgoto bruto e Casos de COVID 19",
         width=1250,  # Definir uma largura fixa
         height=560,  # Definir uma altura fixa
     )
@@ -90,8 +100,6 @@ with container_2:
     
     col4.write("Análises ambientais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
     col4.write('Município selecionado: {}'.format(muni))
-    
-    #col4.write("")
 
     tabela = df_esgoto_filtrado.copy()
     tabela['Mês'] = tabela['Data de coleta'].dt.month
