@@ -103,8 +103,6 @@ with container_2:
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
-    col4.table(matriz)
-
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
