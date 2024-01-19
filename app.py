@@ -109,7 +109,7 @@ with container_2:
         
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
     matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
-    matriz['Variação absoluta'] = matriz['Variação absoluta'].astype(int)
+    matriz['Variação absoluta'] = pd.to_numeric(matriz['Variação absoluta'], errors='coerce').astype('Int64')
 
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
     #matriz['Variação em porcentagem'] = pd.to_numeric(matriz['Variação em porcentagem'], errors='coerce').astype('Int64')
