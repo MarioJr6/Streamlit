@@ -91,6 +91,8 @@ with container_2:
     
     col4.write("Análises ambintais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
 
+    col4.write(muni)
+
     col4.write("")
     col4.write("")
 
