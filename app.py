@@ -107,7 +107,7 @@ with container_2:
 
     col4.table(matriz)
     
-    col4.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
+    col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
 
     container_3 = st.container()
     with container_3: 
