@@ -83,7 +83,7 @@ with container_2:
     fig = fig.update_layout(
           title_text="Carga viral no esgoto bruto e Casos de COVID 19"
     )
-
+    
     fig.update_yaxes(title_text="<b>Carga viral N1 (cópias genômicas/L)</b>", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
     fig.update_yaxes(title_text="<b>Casos confirmados</b>", secondary_y=True, range=[0, df_casos[muni].max()*1.2])
 
@@ -93,9 +93,7 @@ with container_2:
     )
     
     col1.plotly_chart(fig)
-
-    #col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=200)
-
+    
     col4.write("")
     col4.write("")
     col4.write("")
@@ -110,9 +108,12 @@ with container_2:
     matriz = tabela.groupby('Mês').mean().reset_index()
         
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
+    matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
+    
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-    matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
+    matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
 
+    matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
