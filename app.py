@@ -106,3 +106,6 @@ with container_2:
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
     col4.table(matriz)
+
+    col4.write("teste")
+    
