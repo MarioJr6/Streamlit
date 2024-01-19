@@ -108,10 +108,10 @@ with container_2:
     matriz = tabela.groupby('Mês').mean().reset_index()
         
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
-    #matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
+    matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
 
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-    #matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
+    matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
     col4.table(matriz.style.set_table_styles(
@@ -120,6 +120,3 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
-
-    tipo_dados = matriz.dtypes
-    col4.write(tipo_dados)
