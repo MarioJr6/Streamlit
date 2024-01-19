@@ -42,7 +42,7 @@ with container_2:
             div[data-baseweb="select"] {
                 background-color: #FF0000;
                 color: white;
-                #border-radius: 5px;
+                border-radius: 5px;
             }
             div[data-baseweb="select"] div {
                 border: none !important;
