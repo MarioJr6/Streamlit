@@ -85,15 +85,12 @@ with container_2:
     
     col1.plotly_chart(fig)
 
-    
-    
     col4.write("")
     col4.write("")
     col4.write("")
     
     col4.write("Análises ambintais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
     
-    col4.write("")
     col4.write("")
     col4.write("")
 
