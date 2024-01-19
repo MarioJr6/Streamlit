@@ -108,15 +108,16 @@ with container_2:
     matriz = tabela.groupby('Mês').mean().reset_index()
         
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
+    matriz['Variação absoluta'] = pd.to_numeric(matriz['Variação absoluta'], errors='coerce').astype('Int64')
+
     matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
 
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
+    matriz['Variação em porcentagem'] = pd.to_numeric(matriz['Variação em porcentagem'], errors='coerce').astype('Int64')
+
     matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
-
-    matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
-
-    tipo_dados = matriz.dtypes
     
+    matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
@@ -124,4 +125,5 @@ with container_2:
     ]
     ))
 
+    tipo_dados = matriz.dtypes
     col4.write(tipo_dados)
