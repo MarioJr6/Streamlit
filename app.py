@@ -94,6 +94,8 @@ with container_2:
     
     col1.plotly_chart(fig)
 
+    col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true', width=300, use_container_width=True)
+
     col4.write("")
     col4.write("")
     col4.write("")
