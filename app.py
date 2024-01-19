@@ -98,7 +98,7 @@ with container_2:
     """
     <style>
         img.logo {
-            margin-left: 20px;  # Ajuste este valor conforme necessário
+            margin-right: 20px;  # Ajuste este valor conforme necessário
         }
     </style>
     """, unsafe_allow_html=True
