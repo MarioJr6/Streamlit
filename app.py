@@ -122,7 +122,7 @@ with container_2:
     ))
 
     tipo = matriz.dtypes
-    print(tipo)
+    tipo
     
 
     #col4.image("https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true",width=200)
