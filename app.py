@@ -106,7 +106,7 @@ with container_2:
     tabela = tabela.drop('Data de coleta', axis=1)
 
     matriz = tabela.groupby('Mês').mean().reset_index()
-        
+
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
     matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
 
@@ -120,5 +120,9 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
+
+    tipo = matriz.dtypes
+    print(tipo)
+    
 
     #col4.image("https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true",width=200)
