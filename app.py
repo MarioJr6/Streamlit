@@ -119,11 +119,13 @@ with container_2:
     matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
-    #Converti para o tipo inteiro, mas não sei ao certo se é a modificação ideal.
     matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
     
-    #for i in matriz['Variação absoluta']: 
-        #if
+    def conversao(valor):
+        try:
+            return int(float(valor))
+        except ValueError:
+            return valor
     
     col4.table(matriz.style.set_table_styles(
     [
