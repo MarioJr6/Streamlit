@@ -115,7 +115,9 @@ with container_2:
     
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
-    matriz['Média da carga viral mensal'] = pd.to_numeric(matriz['Média da carga viral mensal'])
+    matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
+
+    #matriz['Média da carga viral mensal'] = pd.to_numeric(matriz['Média da carga viral mensal'])
 
     col4.table(matriz.style.set_table_styles(
     [
