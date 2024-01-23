@@ -113,9 +113,10 @@ with container_2:
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
     matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
+    
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
-
-    #matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
+    #Converti para o tipo inteiro, mas não sei ao certo se é a modificação ideal.
+    matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
 
     #matriz['Média da carga viral mensal'] = pd.to_numeric(matriz['Média da carga viral mensal'])
 
