@@ -115,6 +115,8 @@ with container_2:
     
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
+    matriz['Média da carga viral mensal'] = pd.to_numeric(matriz['Média da carga viral mensal'])
+
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
@@ -124,6 +126,5 @@ with container_2:
 
     tipo = matriz.dtypes
     tipo
-    
 
     #col4.image("https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true",width=200)
