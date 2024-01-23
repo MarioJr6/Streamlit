@@ -113,7 +113,6 @@ with container_2:
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
     matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
-    df['Média da carga viral mensal'] = df['Média da carga viral mensal'].astype(int)
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
 
     col4.table(matriz.style.set_table_styles(
