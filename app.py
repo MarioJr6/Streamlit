@@ -1,3 +1,4 @@
+# Importando as bibliotecas para utilizar no desenvolvimento do painel
 import streamlit as st
 import pandas as pd
 import requests
@@ -8,6 +9,7 @@ import streamlit_extras
 from plotly.subplots import make_subplots
 from streamlit_extras.metric_cards import style_metric_cards
 
+# Configuração inicial padrão
 st.set_page_config(
     page_title="Painel de Monitoramento Ambiental de SARS-CoV-2",
     page_icon="	:snake:",
@@ -15,9 +17,12 @@ st.set_page_config(
     initial_sidebar_state='collapsed'
 )
 
+# Definindo o primeiro container
 container_1 = st.container()
 with container_1: 
+    # Definindo as colunas que irei utilizar
     col1, col2, col3 = st.columns([1,4,1])
+    # Adicionando as imagens ao painel e o meu título desejado, centralizando dele no meio do painel
     col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20CEVS.png?raw=true', width=200)
     col2.markdown("<h2 style='text-align: center;'>Painel de Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
@@ -108,20 +113,17 @@ with container_2:
     matriz = tabela.groupby('Mês').mean().reset_index()
 
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
-    matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
-    #matriz['Variação absoluta'] = matriz['Variação Absoluta'].astype(int)
+    #matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
 
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-    matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
-    #matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].astype(int)
-    
+    #matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
     #Converti para o tipo inteiro, mas não sei ao certo se é a modificação ideal.
     matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
-
-    #matriz['Média da carga viral mensal'] = pd.to_numeric(matriz['Média da carga viral mensal'])
-
+    
+    #for i in matriz['Variação absoluta']: 
+    
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
@@ -131,5 +133,3 @@ with container_2:
 
     tipo = matriz.dtypes
     tipo
-
-    #col4.image("https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/ufrgs.png?raw=true",width=200)
