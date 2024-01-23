@@ -113,10 +113,10 @@ with container_2:
     matriz = tabela.groupby('Mês').mean().reset_index()
 
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
-    #matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
+    matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
     
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-    #matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
+    matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
     #Converti para o tipo inteiro, mas não sei ao certo se é a modificação ideal.
