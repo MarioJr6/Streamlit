@@ -122,7 +122,8 @@ with container_2:
     #Converti para o tipo inteiro, mas não sei ao certo se é a modificação ideal.
     matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
     
-    #for i in matriz['Variação absoluta']: 
+    for i in matriz['Variação absoluta']: 
+        if
     
     col4.table(matriz.style.set_table_styles(
     [
