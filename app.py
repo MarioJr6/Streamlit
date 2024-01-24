@@ -162,15 +162,8 @@ with container_2:
         except ValueError:
             return valor
 
-    def infinito(valor):
-        if not math.isinf(valor): 
-            return valor
-        else: 
-            return variavel
-            
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(infinito)
-    
+
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
