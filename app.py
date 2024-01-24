@@ -146,10 +146,11 @@ with container_2:
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
     matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
     
-    #
+    # Calculando a variação em porcentagem em relação ao Mês anterior
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
     matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
-    
+
+    # Renomeando a coluna e o tipo 
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
     matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
     
@@ -170,6 +171,8 @@ with container_2:
 
     #tipo = matriz.dtypes
     #tipo
-
+    lista=[]
     for i in matriz['Variação em porcentagem']: 
-        print(type(i))
+        lista.append(type(i))
+
+    lista
