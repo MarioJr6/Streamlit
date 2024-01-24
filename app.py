@@ -119,10 +119,9 @@ with container_2:
         width=1250,  # Definir uma largura fixa
         height=560,  # Definir uma altura fixa
     )
-
+    
     # Plotando meu gráfico
     col1.plotly_chart(fig)
-
     # Espaço em branco para ajustar o visual do painel
     col4.write("")
     col4.write("")
@@ -154,14 +153,14 @@ with container_2:
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
     matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
 
-    variavel = 'teste'
-    
+    # Função para transformar os valores em inteiro e retornar os que estão em formato texto
     def conversao(valor):
         try:
             return int(float(valor))
         except ValueError:
             return valor
-
+ 
+    # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
 
     col4.table(matriz.style.set_table_styles(
