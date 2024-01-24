@@ -160,11 +160,11 @@ with container_2:
         except ValueError:
             return valor
 
-#    def verificar_infinito(valor):
-#        if math.isinf(valor):
-#            return "Infinito"
-#        else:
-#            return valor
+    def verificar_infinito(valor):
+        if math.isinf(valor):
+            return "Infinito"
+        else:
+            return valor
  
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
