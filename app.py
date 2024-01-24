@@ -161,6 +161,8 @@ with container_2:
             
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
 
+    matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(conversao)
+
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
