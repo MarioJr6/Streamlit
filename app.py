@@ -173,6 +173,8 @@ with container_2:
     #tipo
     lista=[]
     for i in matriz['Variação em porcentagem']: 
-        lista.append(type(i))
+        if i==inf: 
+             lista.append(i)
+        #lista.append(type(i))
 
     lista
