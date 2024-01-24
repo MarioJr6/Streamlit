@@ -126,6 +126,8 @@ with container_2:
             return int(float(valor))
         except ValueError:
             return valor
+
+    matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
     
     col4.table(matriz.style.set_table_styles(
     [
