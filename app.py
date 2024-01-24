@@ -80,9 +80,10 @@ with container_2:
     # Criando uma lista com as datas de coleta
     lista = df_esgoto2['Data de coleta'].tolist()
 
-    
+    # Alterando o tipo de dado da coluna
     df_esgoto_filtrado['carga_viral_n1'] =  df_esgoto_filtrado['carga_viral_n1'].astype(int)
 
+    # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = df_casos_filtrado.tail(7).sum())
     col3.metric(label = "Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
@@ -90,49 +91,62 @@ with container_2:
     col4.metric(label = "Data da última análise ambiental", 
                 value = lista[-1])
     
+    # Estilo das métricas
     style_metric_cards(border_left_color="#FF0000")
 
+    # Definindo os casos confirmados pela data de sintomas para ser a linha do gráfico
     fig = fig.add_trace(
       go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos confirmados", mode="lines"),
       secondary_y=True,
     )
-    
+    # Utilizando minha carga viral para ser a barra do gráfico
     fig = fig.add_trace(
           go.Bar(x=df_esgoto_filtrado['Data de coleta'], y=df_esgoto_filtrado['carga_viral_n1'], name="Carga viral N1 (cópias genômicas/L)",
           marker=dict(color='red')),
           secondary_y=False, 
     )
-
+    # Texto do gráfico
     fig = fig.update_layout(
           title_text="Carga viral no esgoto bruto e Casos de COVID 19"
     )
-    
+
+    # Ajustando a configuração dos eixos do gráfico
     fig.update_yaxes(title_text="<b>Carga viral N1 (cópias genômicas/L)</b>", secondary_y=False, range=[0,df_esgoto['carga_viral_n1'].max()*1.2])
     fig.update_yaxes(title_text="<b>Casos confirmados</b>", secondary_y=True, range=[0, df_casos[muni].max()*1.2])
 
+    # Definindo a altura e largura do gráfico
     fig.update_layout(
         width=1250,  # Definir uma largura fixa
         height=560,  # Definir uma altura fixa
     )
-    
+
+    # Plotando meu gráfico
     col1.plotly_chart(fig)
-    
+
+    # Espaço em branco para ajustar o visual do painel
     col4.write("")
     col4.write("")
     col4.write("")
-    
+
+    # Iformativo do laboratório das análises e do muni selecionado no filtro
     col4.write("Análises ambientais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
     col4.write('Município selecionado: {}'.format(muni))
 
+    # Copiando a tabela filtrada para criar uma matriz informativa
     tabela = df_esgoto_filtrado.copy()
+
+    # Extração dos meses da coluna data de coleta e dropando a coluna posteriormente
     tabela['Mês'] = tabela['Data de coleta'].dt.month
     tabela = tabela.drop('Data de coleta', axis=1)
 
+    # Agrupando os dados apartir do mês e calculando a média dos dados
     matriz = tabela.groupby('Mês').mean().reset_index()
 
+    # Calculando a variação absoluta em relação ao Mês anterior
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
     matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
     
+    # 
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
     matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
@@ -147,8 +161,6 @@ with container_2:
             
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
 
-    
-
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
@@ -157,4 +169,4 @@ with container_2:
     ))
 
     tipo = matriz.dtypes
-    tipo
+    #tipo
