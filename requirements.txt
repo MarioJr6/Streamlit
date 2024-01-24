@@ -4,3 +4,4 @@ streamlit == 1.29.0
 requests == 2.31.0
 matplotlib == 3.8.2
 streamlit_extras == 0.3.6
+math == 3.5
