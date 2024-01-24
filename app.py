@@ -169,4 +169,4 @@ with container_2:
     ))
 
     tipo = matriz.dtypes
-    #tipo
+    tipo
