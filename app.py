@@ -146,7 +146,7 @@ with container_2:
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
     matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
     
-    # 
+    #
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
     matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
     
@@ -168,5 +168,8 @@ with container_2:
     ]
     ))
 
-    tipo = matriz.dtypes
-    tipo
+    #tipo = matriz.dtypes
+    #tipo
+
+    for i in matriz['Variação em porcentagem']: 
+        print(type(i))
