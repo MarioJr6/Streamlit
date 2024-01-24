@@ -5,7 +5,6 @@ import requests
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit_extras
-import math
 
 from plotly.subplots import make_subplots
 from streamlit_extras.metric_cards import style_metric_cards
@@ -161,15 +160,15 @@ with container_2:
         except ValueError:
             return valor
 
-    def verificar_infinito(valor):
-        if math.isinf(valor):
-            return "Infinito"
-        else:
-            return valor
+#    def verificar_infinito(valor):
+#        if math.isinf(valor):
+#            return "Infinito"
+#        else:
+#            return valor
  
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(verificar_infinito)
+#    matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(verificar_infinito)
 
     col4.table(matriz.style.set_table_styles(
     [
