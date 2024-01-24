@@ -34,20 +34,21 @@ df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfj
 # Municípios que usarei como filtro
 municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', 'SANTA ROSA', 'TORRES']
 
-# 
+# Formatando para o tipo data
 df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
-#
+# Filtrando para o período selecionado
 df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
-#
+# Transformando a a coluna carga viral para o tipo float
 df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
+# Definindo subplots (gráficos secundários) 
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 
-df_esgoto
-
+# Definindo o segundo container
 container_2 = st.container() 
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
+    # Borda visual para o selectbox
     col1.markdown(
         """
         <style>
@@ -62,16 +63,24 @@ with container_2:
         </style>
         """, unsafe_allow_html=True
     )
+    # Selectbox para selecionar o município
     muni = col1.selectbox('Selecione o município', municipio)
-    
+
+    # Criando o filtro que utilizarei como base para os meus dados
     filtro = df_esgoto['Município']==muni
+    
+    # Filtrando as bases de dados
     df_esgoto_filtrado = df_esgoto[filtro]
     df_casos_filtrado = df_casos[muni]
-    
+
+    # Copiando minha base de dados filtrada para realizar as mudanças
     df_esgoto2 = df_esgoto_filtrado.copy()
+    # Transformando o tipo de dado da coluna para string
     df_esgoto2['Data de coleta'] = df_esgoto2['Data de coleta'].astype(str)
+    # Criando uma lista com as datas de coleta
     lista = df_esgoto2['Data de coleta'].tolist()
 
+    
     df_esgoto_filtrado['carga_viral_n1'] =  df_esgoto_filtrado['carga_viral_n1'].astype(int)
 
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
