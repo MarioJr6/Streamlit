@@ -32,8 +32,8 @@ df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfj
 
 municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', 'SANTA ROSA', 'TORRES']
 
-df_esgoto['Data de coleta']=pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
-df_esgoto=df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
+df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
+df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
 fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -62,15 +62,17 @@ with container_2:
     df_casos_filtrado = df_casos[muni]
     
     df_esgoto2 = df_esgoto_filtrado.copy()
-    df_esgoto2['Data de coleta']=df_esgoto2['Data de coleta'].astype(str)
+    df_esgoto2['Data de coleta'] = df_esgoto2['Data de coleta'].astype(str)
     lista = df_esgoto2['Data de coleta'].tolist()
 
-    col2.metric(label="Casos de COVID 19 confirmados nos últimos 7 dias", 
-                value=df_casos_filtrado.tail(7).sum())
-    col3.metric(label="Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
-                value=df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
-    col4.metric(label="Data da última análise ambiental", 
-                value=lista[-1])
+    df_esgoto_filtrado['carga_viral_n1'] =  df_esgoto_filtrado['carga_viral_n1'].astype(int)
+
+    col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
+                value = df_casos_filtrado.tail(7).sum())
+    col3.metric(label = "Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
+                value = df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
+    col4.metric(label = "Data da última análise ambiental", 
+                value = lista[-1])
     
     style_metric_cards(border_left_color="#FF0000")
 
@@ -126,9 +128,9 @@ with container_2:
             return int(float(valor))
         except ValueError:
             return valor
-
+            
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    
+
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
