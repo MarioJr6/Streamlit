@@ -160,7 +160,8 @@ with container_2:
             return int(float(valor))
         except ValueError:
             return valor
-
+    
+    # Função para verificar a presença de valores infinitos na coluna
     def processamento_coluna(coluna): 
         resultado = []
         for valor in coluna: 
@@ -172,12 +173,15 @@ with container_2:
                 resultado.append(0)
         return resultado
    
-    # Aplicando a conversão
+    # Aplicando as funções
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
     matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
+    
+    # Dropando e renomeando as colunas
     matriz = matriz.drop('Variação em porcentagem', axis=1)
     matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
-    
+
+    # Plotando a tabela
     col4.table(matriz.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
