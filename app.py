@@ -175,6 +175,7 @@ with container_2:
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
     matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
+    matriz = matriz.drop('Variação em porcentagem', axis=1)
 
     col4.table(matriz.style.set_table_styles(
     [
