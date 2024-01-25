@@ -82,7 +82,7 @@ with container_2:
     lista = df_esgoto2['Data de coleta'].tolist()
 
     # Alterando o tipo de dado da coluna
-    df_esgoto_filtrado['carga_viral_n1'] =  df_esgoto_filtrado['carga_viral_n1'].astype(int)
+    df_esgoto_filtrado['carga_viral_n1'] = df_esgoto_filtrado['carga_viral_n1'].astype(int)
 
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
