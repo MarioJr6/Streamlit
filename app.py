@@ -5,6 +5,7 @@ import requests
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit_extras
+import numpy as np
 
 from plotly.subplots import make_subplots
 from streamlit_extras.metric_cards import style_metric_cards
@@ -160,16 +161,12 @@ with container_2:
         except ValueError:
             return valor
 
-  def c(valor):
-    try:
-        # Verificar se o valor é infinito
-        if math.isinf(float(valor)):
+    def c(valor):
+        if np.isinf(valor):
             return 0
         else:
-            return int(float(valor))
-    except ValueError:
-        # Se ocorrer um erro de valor, retornar o próprio valor
-        return valor
+            return valor
+        
        
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
