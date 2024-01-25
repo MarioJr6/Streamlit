@@ -160,17 +160,15 @@ with container_2:
         except ValueError:
             return valor
 
-    teste = 10
+    #teste = 10
     
-    def verificar_infinito(valor):
-        if not math.isinf(valor):
-            return valor
-        else:
-            return teste
+    #def verificar_infinito(valor):
+       
+     
  
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(verificar_infinito)
+    #matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(verificar_infinito)
 
     col4.table(matriz.style.set_table_styles(
     [
