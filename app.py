@@ -160,7 +160,7 @@ with container_2:
         except ValueError:
             return valor
 
-    teste = 'teste'
+    teste = 10
     
     def verificar_infinito(valor):
         if not math.isinf(valor):
