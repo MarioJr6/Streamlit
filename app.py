@@ -174,8 +174,7 @@ with container_2:
    
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(processamento_coluna)
-    #matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
+    matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
 
     col4.table(matriz.style.set_table_styles(
     [
