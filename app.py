@@ -160,17 +160,10 @@ with container_2:
             return int(float(valor))
         except ValueError:
             return valor
-
-    def c(valor):
-        if np.isinf(valor):
-            return 0
-        else:
-            return valor
-        
-       
+   
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(c)
+    # matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(c)
 
     col4.table(matriz.style.set_table_styles(
     [
