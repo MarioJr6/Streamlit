@@ -160,10 +160,21 @@ with container_2:
             return int(float(valor))
         except ValueError:
             return valor
+
+    def processamento_coluna(coluna): 
+        resultado = []
+        for valor in coluna: 
+            if isinstance(valor, (int, float)) and not np.isinf(valor):
+                resultado.append(valor)
+            elif isinstance(valor, str): 
+                resultado.append(valor)
+            else: 
+                resultado.append(0)
+        return resultado
    
     # Aplicando a conversão
     matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    # matriz['Variação em porcentagem'] = matriz['Variação em porcentagem'].apply(c)
+    matriz['Coluna teste'] = processamento_coluna(df['Variação em porcentagem'])
 
     col4.table(matriz.style.set_table_styles(
     [
