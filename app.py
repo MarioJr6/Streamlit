@@ -161,7 +161,7 @@ with container_2:
             return valor
 
     def verificar_infinito(valor):
-        if math.isinf(valor):
+        if not math.isinf(valor):
             return "Infinito"
         else:
             return valor
