@@ -108,7 +108,7 @@ with container_2:
             data_formatada = data_obj.strftime("%d/%m/%Y")
             # Adicionar à lista de datas formatadas
             datas_formatadas.append(data_formatada)
-            col4.write(data_formatada)
+            col1.write(data_formatada)
         return datas_formatadas
 
     
