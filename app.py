@@ -98,7 +98,8 @@ with container_2:
     # Criando uma lista com as datas de coleta
     lista_de_datas = df_esgoto2['Data de coleta'].tolist()
 
-    lista_de_datas
+    for i in lista_de_datas: 
+        col1.write(i)
 
         
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
