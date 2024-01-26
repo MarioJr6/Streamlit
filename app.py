@@ -98,6 +98,12 @@ with container_2:
     # Criando uma lista com as datas de coleta
     lista = df_esgoto2['Data de coleta'].tolist()
 
+    # Ordenando os valores da lista
+
+    
+
+
+    
     # Alterando o tipo de dado da coluna
     # df_esgoto_filtrado['carga_viral_n1'] = df_esgoto_filtrado['carga_viral_n1'].astype(int)
 
@@ -108,8 +114,6 @@ with container_2:
                 value = df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     col4.metric(label = "Data da última análise ambiental", 
                 value = lista[-1])
-
-    lista
     
     # Estilo das métricas
     style_metric_cards(border_left_color="#FF0000")
