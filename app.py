@@ -102,7 +102,7 @@ with container_2:
     def ordenar_datas(lista):
         lista_datas = []
         for i in lista:
-            data_formatada = data_obj.strftime("%d/%m/%Y")
+            data_formatada = lista.strftime("%d/%m/%Y")
             # Adicionar à lista de datas formatadas
             lista_datas.append(data_formatada)
         
