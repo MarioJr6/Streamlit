@@ -99,14 +99,17 @@ with container_2:
     lista = df_esgoto2['Data de coleta'].tolist()
 
     # Ordenando os valores da lista
-
+    def ordenar_datas(lista):
+        lista_datas = []
+        for i in lista:
+            data_formatada = data_obj.strftime("%d/%m/%Y")
+            # Adicionar à lista de datas formatadas
+            lista_datas.append(data_formatada)
+        
+        return lista_datas
     
-
-
+    datas_formatadas = ordenar_datas(lista)
     
-    # Alterando o tipo de dado da coluna
-    # df_esgoto_filtrado['carga_viral_n1'] = df_esgoto_filtrado['carga_viral_n1'].astype(int)
-
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = df_casos_filtrado.tail(7).sum())
