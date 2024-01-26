@@ -29,15 +29,25 @@ with container_1:
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
 
 
-# @st.cache_data
-# def fetch_and_clean_data(url):
-    # Fetch data from URL here, and then clean it up.
-    # return data
+ @st.cache_data
+ def fetch_and_clean_data(url):
+    df_casos = pd.read_csv(url, encoding="UTF-8", sep=";")
+    df_casos['DATA_SINTOMAS']=pd.to_datetime(df_casos['DATA_SINTOMAS'], format='%d/%m/%Y')
+    df_casos['DATA_CONFIRMACAO']=pd.to_datetime(df_casos['DATA_CONFIRMACAO'], format='%d/%m/%Y')
 
-# d1 = fetch_and_clean_data(DATA_URL_1)
+  # Agrupando os dados de forma que eu tenha todas as datas do ano
+    grouped = pd.pivot_table(data=df_casos, index='DATA_SINTOMAS', columns='MUNICIPIO', values='CRITERIO', aggfunc='count').fillna(0).reset_index()
+
+    colunas = ['DATA_SINTOMAS', 'CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO',
+           'SANTA MARIA', 'SANTA ROSA', 'TORRES']
+    grouped = grouped[colunas]
+     
+    return grouped
+
+df_casos = fetch_and_clean_data('https://ti.saude.rs.gov.br/covid19/download?2023')
 
 # Realizando a leitura dos dados para utilizar no painel
-df_casos = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vSB6M4e3McfIwkph-nzq_SefdhzGx_6ycMmj8SHTzcXYrkUMe1P7Nza6BpKPva_HUhpDXBgwKXrHREx/pub?output=tsv')
+# df_casos = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vSB6M4e3McfIwkph-nzq_SefdhzGx_6ycMmj8SHTzcXYrkUMe1P7Nza6BpKPva_HUhpDXBgwKXrHREx/pub?output=tsv')
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
 
 # Municípios que usarei como filtro
