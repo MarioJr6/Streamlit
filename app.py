@@ -96,19 +96,24 @@ with container_2:
     # Transformando o tipo de dado da coluna para string
     df_esgoto2['Data de coleta'] = df_esgoto2['Data de coleta'].astype(str)
     # Criando uma lista com as datas de coleta
-    lista_de_datas = df_esgoto2['Data de coleta'].tolist()
+    lista = df_esgoto2['Data de coleta'].tolist()
+    
+    for data in lista:
+        lista_datas = []
+        partes = data.split('-')
+        data_ordenada = '-'.join(reversed(partes))
 
-    for i in lista_de_datas: 
-        st.write(f"{i}: {type(i)}")
+        lista_datas.append(data_ordenada)
 
-        
+    lista_datas
+    
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = df_casos_filtrado.tail(7).sum())
     col3.metric(label = "Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
                 value = df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     col4.metric(label = "Data da última análise ambiental", 
-                value = lista_de_datas[-1])
+                value = lista[-1])
     
     # Estilo das métricas
     style_metric_cards(border_left_color="#FF0000")
