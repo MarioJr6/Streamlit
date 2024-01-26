@@ -28,8 +28,13 @@ with container_1:
     col2.markdown("<h2 style='text-align: center;'>Painel de Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
 
+
+@st.cache_data
+def fetch_and_clean_data(url):
+    
+
 # Realizando a leitura dos dados para utilizar no painel
-df_casos = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vSB6M4e3McfIwkph-nzq_SefdhzGx_6ycMmj8SHTzcXYrkUMe1P7Nza6BpKPva_HUhpDXBgwKXrHREx/pub?output=tsv')
+#df_casos = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vSB6M4e3McfIwkph-nzq_SefdhzGx_6ycMmj8SHTzcXYrkUMe1P7Nza6BpKPva_HUhpDXBgwKXrHREx/pub?output=tsv')
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
 
 # Municípios que usarei como filtro
@@ -166,7 +171,7 @@ with container_2:
         resultado = []
         for valor in coluna: 
             if isinstance(valor, (int, float)) and not np.isinf(valor):
-                resultado.append(f"{valor:.2f}%")
+                resultado.append(f"{valor:.1f}%")
             elif isinstance(valor, str): 
                 resultado.append(valor)
             else: 
