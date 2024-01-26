@@ -100,9 +100,9 @@ with container_2:
     
     for data in lista:
         lista_datas = []
-        partes = data.split('-')
-        data_ordenada = '-'.join(reversed(partes))
-        lista_datas.append(data_ordenada)
+        #partes = data.split('-')
+        #data_ordenada = '-'.join(reversed(partes))
+        lista_datas.append(data)
 
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
