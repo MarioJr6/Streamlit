@@ -37,12 +37,10 @@ def fetch_and_clean_data(url):
 
   # Agrupando os dados de forma que eu tenha todas as datas do ano
     grouped = pd.pivot_table(data=df_casos, index='DATA_SINTOMAS', columns='MUNICIPIO', values='CRITERIO', aggfunc='count').fillna(0).reset_index()
-    
     colunas = ['DATA_SINTOMAS', 'CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO',
            'SANTA MARIA', 'SANTA ROSA', 'TORRES']
-    
     grouped = grouped[colunas]
-     
+    
     return grouped
 
 # Realizando a leitura dos dados para utilizar no painel
