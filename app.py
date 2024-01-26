@@ -109,7 +109,7 @@ with container_2:
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = int(df_casos_filtrado.tail(7).sum()))
     col3.metric(label = "Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
-                value = df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
+                value = int(df_esgoto_filtrado['carga_viral_n1'].iloc[-1]))
     col4.metric(label = "Data da última análise ambiental", 
                 value = lista_formatada[-1])
     
