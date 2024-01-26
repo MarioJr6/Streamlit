@@ -29,8 +29,8 @@ with container_1:
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
 
 
- @st.cache_data
- def fetch_and_clean_data(url):
+@st.cache_data
+def fetch_and_clean_data(url):
     df_casos = pd.read_csv(url, encoding="UTF-8", sep=";")
     df_casos['DATA_SINTOMAS']=pd.to_datetime(df_casos['DATA_SINTOMAS'], format='%d/%m/%Y')
     df_casos['DATA_CONFIRMACAO']=pd.to_datetime(df_casos['DATA_CONFIRMACAO'], format='%d/%m/%Y')
