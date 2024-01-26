@@ -212,3 +212,5 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
+
+    datas_ordenadas
