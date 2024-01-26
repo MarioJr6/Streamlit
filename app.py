@@ -215,4 +215,6 @@ with container_2:
     ]
     ))
 
-    datas_formatadas
+    col1.metric(label = "Data da última análise ambiental", 
+                value = datas_formatadas[-1])
+    #datas_formatadas
