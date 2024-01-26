@@ -96,25 +96,27 @@ with container_2:
     # Transformando o tipo de dado da coluna para string
     df_esgoto2['Data de coleta'] = df_esgoto2['Data de coleta'].astype(str)
     # Criando uma lista com as datas de coleta
-    lista = df_esgoto2['Data de coleta'].tolist()
+    lista_de_datas = df_esgoto2['Data de coleta'].tolist()
 
     # Formatar a minha lista para utilizar na métrica
-    def ordenar_datas(lista): 
-        datas_ordenadas = []
-        for i in lista: 
-            i_obj = datetime.strptime(i, "%Y-%m-%d")
-            data_formatada = i_obj.strftime("%d/%m/%Y")
-            datas_ordenadas.append(data_formatada)
-
-        return datas_ordenadas
-    
+    def formatar_datas(lista_de_datas):
+        datas_formatadas = []
+        for data_str in lista_de_datas:
+            # Converter a string para um objeto datetime
+            data_obj = datetime.strptime(data_str, "%Y-%m-%d")
+            # Formatar a data como Dia/Mês/Ano
+            data_formatada = data_obj.strftime("%d/%m/%Y")
+            # Adicionar à lista de datas formatadas
+            datas_formatadas.append(data_formatada)
+        return datas_formatadas
+        
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = df_casos_filtrado.tail(7).sum())
     col3.metric(label = "Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
                 value = df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     col4.metric(label = "Data da última análise ambiental", 
-                value = lista[-1])
+                value = lista_de_datas[-1])
     
     # Estilo das métricas
     style_metric_cards(border_left_color="#FF0000")
@@ -212,5 +214,3 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
-
-    datas_ordenadas
