@@ -102,10 +102,12 @@ with container_2:
         partes = i.split('-')
         data_ordenada = '-'.join(reversed(partes))
         lista_formatada.append(data_ordenada)
-        
+
+
+    # valor_formatado = int(df_casos_filtrado.tail(7).sum())
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
-                value = df_casos_filtrado.tail(7).sum())
+                value = int(df_casos_filtrado.tail(7).sum()))
     col3.metric(label = "Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
                 value = df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
     col4.metric(label = "Data da última análise ambiental", 
