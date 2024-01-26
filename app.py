@@ -98,20 +98,8 @@ with container_2:
     # Criando uma lista com as datas de coleta
     lista_de_datas = df_esgoto2['Data de coleta'].tolist()
 
-    # Formatar a minha lista para utilizar na métrica
-    def formatar_datas(lista_de_datas):
-        datas_formatadas = []
-        for data_str in lista_de_datas:
-            # Converter a string para um objeto datetime
-            data_obj = datetime.strptime(data_str, "%Y-%m-%d")
-            # Formatar a data como Dia/Mês/Ano
-            data_formatada = data_obj.strftime("%d/%m/%Y")
-            # Adicionar à lista de datas formatadas
-            datas_formatadas.append(data_formatada)
-            col1.write(data_formatada)
-        return datas_formatadas
+    lista_de_datas
 
-    
         
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
