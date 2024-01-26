@@ -97,9 +97,9 @@ with container_2:
     df_esgoto2['Data de coleta'] = df_esgoto2['Data de coleta'].astype(str)
     # Criando uma lista com as datas de coleta
     lista = df_esgoto2['Data de coleta'].tolist()
-
+    
+    teste = []
     for i in lista: 
-        teste = []
         teste.append(i)
     
     
