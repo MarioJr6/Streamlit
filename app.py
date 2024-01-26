@@ -98,9 +98,12 @@ with container_2:
     # Criando uma lista com as datas de coleta
     lista = df_esgoto2['Data de coleta'].tolist()
     
-    teste = []
-    for i in lista: 
-        teste.append(i)
+    lista_formatada = []
+    for i in lista:
+        partes = i.split('-')
+        data_ordenada = '-'.join(reversed(partes))
+        lista_formatada.append(data_ordenada)
+        
     
     
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
@@ -207,5 +210,3 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
-
-    teste
