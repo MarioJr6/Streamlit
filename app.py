@@ -108,7 +108,8 @@ with container_2:
 
         return datas_ordenadas
 
-    datas_ordenadas
+
+datas_ordenadas
     
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
