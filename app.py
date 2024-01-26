@@ -166,7 +166,7 @@ with container_2:
         resultado = []
         for valor in coluna: 
             if isinstance(valor, (int, float)) and not np.isinf(valor):
-                resultado.append(valor)
+                resultado.append(f"{valor}%")
             elif isinstance(valor, str): 
                 resultado.append(valor)
             else: 
