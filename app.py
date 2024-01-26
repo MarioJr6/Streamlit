@@ -100,7 +100,7 @@ with container_2:
 
     for i in lista: 
         teste = []
-        teste.appende(i)
+        teste.append(i)
     
     
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
