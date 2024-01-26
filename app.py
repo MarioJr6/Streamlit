@@ -104,8 +104,6 @@ with container_2:
         data_ordenada = '-'.join(reversed(partes))
         lista_datas.append(data_ordenada)
 
-    lista_datas
-    
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = df_casos_filtrado.tail(7).sum())
@@ -210,3 +208,5 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
+
+    lista_datas
