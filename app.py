@@ -97,7 +97,8 @@ with container_2:
     df_esgoto2['Data de coleta'] = df_esgoto2['Data de coleta'].astype(str)
     # Criando uma lista com as datas de coleta
     lista = df_esgoto2['Data de coleta'].tolist()
-    
+
+    # Formatando a data na ordem correta
     lista_formatada = []
     for i in lista:
         partes = i.split('-')
@@ -208,4 +209,3 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
-    lista_formatada
