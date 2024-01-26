@@ -102,7 +102,6 @@ with container_2:
         lista_datas = []
         partes = data.split('-')
         data_ordenada = '-'.join(reversed(partes))
-
         lista_datas.append(data_ordenada)
 
     lista_datas
