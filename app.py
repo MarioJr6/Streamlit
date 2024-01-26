@@ -108,7 +108,10 @@ with container_2:
             data_formatada = data_obj.strftime("%d/%m/%Y")
             # Adicionar à lista de datas formatadas
             datas_formatadas.append(data_formatada)
+            col4.write(data_formatada)
         return datas_formatadas
+
+    
         
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
@@ -214,7 +217,3 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
-
-    col1.metric(label = "Data da última análise ambiental", 
-                value = datas_formatadas[-1])
-    #datas_formatadas
