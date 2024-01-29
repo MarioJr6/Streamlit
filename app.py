@@ -203,7 +203,7 @@ with container_2:
     matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
 
     # Plotando a tabela
-    col4.table(matriz.style.set_table_styles(
+    col4.table(matriz.reset_index(drop=True).style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
