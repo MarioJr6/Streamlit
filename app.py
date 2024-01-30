@@ -13,7 +13,7 @@ from streamlit_extras.metric_cards import style_metric_cards
 # Configuração inicial padrão
 st.set_page_config(
     page_title="Painel de Monitoramento Ambiental de SARS-CoV-2",
-    page_icon="	:bar_chart:",
+    page_icon="	:microbe:",
     layout="wide",
     initial_sidebar_state='collapsed'
 )
