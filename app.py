@@ -220,4 +220,4 @@ with container_2:
 
     # Adicionando o botão com o link
     if st.button('Clique aqui para ir para o Google'):
-        redirect('https://www.google.com')
+        redirect('https://app.powerbi.com/view?r=eyJrIjoiMWZkZGM5ZmYtMjJmZC00ZTYzLTkzMjAtZjQ0YmUyOWE4MDcxIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9&pageName=ReportSection')
