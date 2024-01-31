@@ -211,3 +211,13 @@ with container_2:
         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
+
+    # Definindo a função para redirecionar para o link
+    def redirect(url):
+        js = f"window.open('{url}')"  # JavaScript para abrir o link em uma nova aba
+        html = f"<script>{js}</script>"
+        st.markdown(html, unsafe_allow_html=True)
+
+    # Adicionando o botão com o link
+    if st.button('Clique aqui para ir para o Google'):
+        redirect('https://www.google.com')
