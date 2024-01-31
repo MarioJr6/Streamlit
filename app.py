@@ -6,6 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit_extras
 import numpy as np
+import webbrowser
 
 from plotly.subplots import make_subplots
 from streamlit_extras.metric_cards import style_metric_cards
@@ -212,12 +213,11 @@ with container_2:
     ]
     ))
 
-    # Definindo a função para redirecionar para o link
-    def redirect(url):
-        js = f"window.open('{url}')"  # JavaScript para abrir o link em uma nova aba
-        html = f"<script>{js}</script>"
-        st.markdown(html, unsafe_allow_html=True)
+    # URL que você deseja redirecionar
+    url = "https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9"
 
-    # Adicionando o botão com o link
-    if st.button('Clique aqui para ir para o Google'):
-        redirect('https://app.powerbi.com/view?r=eyJrIjoiMWZkZGM5ZmYtMjJmZC00ZTYzLTkzMjAtZjQ0YmUyOWE4MDcxIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9&pageName=ReportSection')
+    # Criar o botão
+    if st.button("Ir para o Power BI"):
+    # Redirecionar para a URL quando o botão for clicado
+        webbrowser.open(url)
+    
