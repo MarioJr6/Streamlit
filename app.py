@@ -110,7 +110,6 @@ with container_2:
         data_ordenada = '-'.join(reversed(partes))
         lista_formatada.append(data_ordenada)
 
-
     # valor_formatado = int(df_casos_filtrado.tail(7).sum())
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
@@ -187,27 +186,27 @@ with container_2:
     matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
 
     # Função para transformar os valores em inteiro e retornar os que estão em formato texto
-    def conversao(valor):
-        try:
-            return int(float(valor))
-        except ValueError:
-            return valor
+    # def conversao(valor):
+        # try:
+            # return int(float(valor))
+        # except ValueError:
+            # return valor
     
     # Função para verificar a presença de valores infinitos na coluna
-    def processamento_coluna(coluna): 
-        resultado = []
-        for valor in coluna: 
-            if isinstance(valor, (int, float)) and not np.isinf(valor):
-                resultado.append(f"{valor:.1f}%")
-            elif isinstance(valor, str): 
-                resultado.append(valor)
-            else: 
-                resultado.append(0)
-        return resultado
+    # def processamento_coluna(coluna): 
+        # resultado = []
+        # for valor in coluna: 
+            # if isinstance(valor, (int, float)) and not np.isinf(valor):
+                # resultado.append(f"{valor:.1f}%")
+            # elif isinstance(valor, str): 
+                # resultado.append(valor)
+            # else: 
+                # resultado.append(0)
+        # return resultado
    
     # Aplicando as funções
-    matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
+    # matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
+    # matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
     
     # Dropando e renomeando as colunas
     matriz = matriz.drop('Variação em porcentagem', axis=1)
