@@ -173,19 +173,19 @@ with container_2:
     # Agrupando os dados apartir do mês e calculando a média dos dados
     matriz = tabela.groupby(['Mês', 'Ano']).mean().reset_index()
 
+    matriz
+
     # Calculando a variação absoluta em relação ao Mês anterior
-    matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
-    matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
+    # matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
+    # matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
     
     # Calculando a variação em porcentagem em relação ao Mês anterior
-    matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-    matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
+    # matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
+    # matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
 
     # Renomeando a coluna e o tipo 
-    matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
-    matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
-
-    matriz
+    # matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
+    # matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
 
     # Função para transformar os valores em inteiro e retornar os que estão em formato texto
     def conversao(valor):
@@ -207,25 +207,26 @@ with container_2:
         return resultado
    
     # Aplicando as funções
-    matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
+    # matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
+    # matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
     
     # Dropando e renomeando as colunas
-    matriz = matriz.drop('Variação em porcentagem', axis=1)
-    matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
+    # matriz = matriz.drop('Variação em porcentagem', axis=1)
+    # matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
 
     # Definindo o mês por extenso
-    matriz['Mês'] = matriz['Mês'].map(meses)
+    # matriz['Mês'] = matriz['Mês'].map(meses)
 
     # Plotando a tabela
-    matriz_ = matriz.reset_index(drop=True)
-    col4.table(matriz_.style.set_table_styles(
-    [
-        dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
-        dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
-    ]
-    ))
+    
+    # matriz_ = matriz.reset_index(drop=True)
+    # col4.table(matriz_.style.set_table_styles(
+    # [
+    #     dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
+    #     dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
+    # ]
+    # ))
 
     # URL que você deseja redirecionar
-    painel = 'https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9'
-    st.link_button("Voltar para o painel", painel)
+    # painel = 'https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9'
+    # st.link_button("Voltar para o painel", painel)
