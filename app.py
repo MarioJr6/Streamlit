@@ -175,11 +175,11 @@ with container_2:
     
     # Calculando a variação absoluta em relação ao Mês anterior
     matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
-    matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
+    #matriz['Variação absoluta'].fillna("Sem dados", inplace= True)
     
     # Calculando a variação em porcentagem em relação ao Mês anterior
     matriz['Variação em porcentagem'] = matriz['carga_viral_n1'].pct_change() * 100
-    matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
+    #matriz['Variação em porcentagem'].fillna("Sem dados", inplace= True)
 
     # Renomeando a coluna e o tipo 
     matriz = matriz.rename(columns={'carga_viral_n1':'Média da carga viral mensal'})
