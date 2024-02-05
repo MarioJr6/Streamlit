@@ -167,7 +167,7 @@ with container_2:
     tabela['Mês'] = tabela['Data de coleta'].dt.month
     tabela['Ano'] = tabela['Data de coleta'].dt.year
 
-    tabela['Ano'] = tabela['Ano'].astype(int)
+    tabela['Ano'] = tabela['Ano'].astype(float)
 
     tabela.dtypes
     
