@@ -228,4 +228,4 @@ with container_2:
 
     # URL que você deseja redirecionar
     painel = 'https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9'
-    col1.link_button("Voltar para o painel", painel)
+    col2.link_button("Voltar para o painel", painel)
