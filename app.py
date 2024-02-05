@@ -215,17 +215,17 @@ with container_2:
     matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
 
     # Definindo o mês por extenso
-    #matriz['Mês'] = matriz['Mês'].map(meses)
+    matriz['Mês'] = matriz['Mês'].map(meses)
 
     # Plotando a tabela
-    #matriz_ = matriz.reset_index(drop=True)
-    #col4.table(matriz_.style.set_table_styles(
-    #[
-   #     dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
-   #     dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
-   # ]
-   # ))
+    matriz_ = matriz.reset_index(drop=True)
+    col4.table(matriz_.style.set_table_styles(
+    [
+        dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
+        dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
+    ]
+    ))
 
     # URL que você deseja redirecionar
-   # painel = 'https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9'
-   # st.link_button("Voltar para o painel", painel)
+    painel = 'https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9'
+    st.link_button("Voltar para o painel", painel)
