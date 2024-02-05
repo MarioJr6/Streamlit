@@ -171,7 +171,7 @@ with container_2:
     tabela = tabela.drop('Data de coleta', axis=1)
 
     # Agrupando os dados apartir do mês e calculando a média dos dados
-    matriz = tabela.groupby('Mês').mean().reset_index()
+    matriz = tabela.groupby(['Mês', 'Ano']).mean().reset_index()
 
     matriz
 
