@@ -169,7 +169,7 @@ with container_2:
 
     tabela['Ano'] = tabela['Ano'].astype(int)
 
-    tabela.dtypes()
+    tabela.dtypes
     
     # tabela = tabela.drop('Data de coleta', axis=1)
 
