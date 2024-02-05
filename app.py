@@ -44,6 +44,12 @@ def fetch_and_clean_data(url):
     
     return grouped
 
+# Dicionário dos meses
+meses = { 1: 'Janeiro', 2: 'Fevereiro', 3: 'Março',
+         4: 'Abril', 5: 'Maio', 6: 'Junho',
+         7: 'Julho', 8: 'Agosto', 9: 'Setembro',
+         10: 'Outubro', 11: 'Novembro', 12: 'Dezembro'}
+
 # Realizando a leitura dos dados para utilizar no painel
 df_casos = fetch_and_clean_data('https://ti.saude.rs.gov.br/covid19/download?2023')
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
@@ -203,9 +209,11 @@ with container_2:
     matriz = matriz.drop('Variação em porcentagem', axis=1)
     matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
 
-    matriz_ = matriz.reset_index(drop=True)
+    # Definindo o mês por extenso
+    matriz['Mês'] = matriz['Mês'].map(meses)
 
     # Plotando a tabela
+    matriz_ = matriz.reset_index(drop=True)
     col4.table(matriz_.style.set_table_styles(
     [
         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
@@ -215,5 +223,4 @@ with container_2:
 
     # URL que você deseja redirecionar
     painel = 'https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9'
-
     st.link_button("Voltar para o painel", painel)
