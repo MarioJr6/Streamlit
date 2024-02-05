@@ -165,7 +165,7 @@ with container_2:
 
     # Extração dos meses da coluna data de coleta e dropando a coluna posteriormente
     tabela['Mês'] = tabela['Data de coleta'].dt.month
-    tabela['Ano'] = tabela['Data de coleta'].dt.year.astype(int)
+    tabela['Ano'] = tabela['Data de coleta'].dt.year
     
     tabela = tabela.drop('Data de coleta', axis=1)
 
