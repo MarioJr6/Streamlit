@@ -173,6 +173,8 @@ with container_2:
     # Agrupando os dados apartir do mês e calculando a média dos dados
     matriz = tabela.groupby(['Mês', 'Ano']).mean().reset_index()
 
+    matriz = matriz.sort_values(by='coluna')
+    
     matriz
 
     # Calculando a variação absoluta em relação ao Mês anterior
