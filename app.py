@@ -166,8 +166,9 @@ with container_2:
     # Extração dos meses da coluna data de coleta e dropando a coluna posteriormente
     tabela['Mês'] = tabela['Data de coleta'].dt.month
     tabela['Ano'] = tabela['Data de coleta'].dt.year
-    
-    tabela = tabela.drop('Data de coleta', axis=1)
+
+    tabela['Ano'] = tabela['Ano'].astype(int)
+    # tabela = tabela.drop('Data de coleta', axis=1)
 
     # Agrupando os dados apartir do mês e calculando a média dos dados
     #matriz = tabela.groupby('Mês').mean().reset_index()
