@@ -167,7 +167,9 @@ with container_2:
     tabela['Mês'] = tabela['Data de coleta'].dt.month
     tabela['Ano'] = tabela['Data de coleta'].dt.year
 
-    tabela['Ano'] = tabela['Ano'].str.replace(',', '')
+    
+
+    tabela['Ano'] = tabela['Ano'].astype(str).str.replace('-', '')
     
 
     tabela.dtypes
