@@ -207,12 +207,12 @@ with container_2:
         return resultado
    
     # Aplicando as funções
-    #matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
-    #matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
+    matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
+    matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
     
     # Dropando e renomeando as colunas
-    #matriz = matriz.drop('Variação em porcentagem', axis=1)
-    #matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
+    matriz = matriz.drop('Variação em porcentagem', axis=1)
+    matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
 
     # Definindo o mês por extenso
     #matriz['Mês'] = matriz['Mês'].map(meses)
