@@ -167,10 +167,10 @@ with container_2:
     tabela['Mês'] = tabela['Data de coleta'].dt.month
     tabela['Ano'] = tabela['Data de coleta'].dt.year
 
-    tabela['Ano'] = tabela['Ano'].astype(float)
+    tabela['Ano'] = tabela['Ano'].str.replace(',', '')
+    
 
     tabela.dtypes
-    
     # tabela = tabela.drop('Data de coleta', axis=1)
 
     # Agrupando os dados apartir do mês e calculando a média dos dados
