@@ -168,11 +168,12 @@ with container_2:
     tabela['Ano'] = tabela['Data de coleta'].dt.year
     tabela['Ano'] = tabela['Ano'].astype(str).str.replace('-', '')
     
-    tabela.dtypes
     tabela = tabela.drop('Data de coleta', axis=1)
 
     # Agrupando os dados apartir do mês e calculando a média dos dados
     matriz = tabela.groupby('Mês').mean().reset_index()
+
+    matriz
 
     # Calculando a variação absoluta em relação ao Mês anterior
     #matriz['Variação absoluta'] = matriz['carga_viral_n1'].diff()
