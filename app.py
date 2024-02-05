@@ -45,10 +45,10 @@ def fetch_and_clean_data(url):
     return grouped
 
 # Dicionário dos meses
-meses = { 0: 'Janeiro', 1: 'Fevereiro', 2: 'Março',
-         3: 'Abril', 4: 'Maio', 5: 'Junho',
-         6: 'Julho', 7: 'Agosto', 8: 'Setembro',
-         9: 'Outubro', 10: 'Novembro', 11: 'Dezembro'}
+#meses = { 0: 'Janeiro', 1: 'Fevereiro', 2: 'Março',
+#         3: 'Abril', 4: 'Maio', 5: 'Junho',
+#         6: 'Julho', 7: 'Agosto', 8: 'Setembro',
+#         9: 'Outubro', 10: 'Novembro', 11: 'Dezembro'}
 
 # Realizando a leitura dos dados para utilizar no painel
 df_casos = fetch_and_clean_data('https://ti.saude.rs.gov.br/covid19/download?2023')
@@ -210,7 +210,7 @@ with container_2:
     matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
 
     # Definindo o mês por extenso
-    matriz['Mês'] = matriz['Mês'].map(meses)
+    # matriz['Mês'] = matriz['Mês'].map(meses)
 
     # Plotando a tabela
     matriz_ = matriz.reset_index(drop=True)
