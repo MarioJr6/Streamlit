@@ -186,11 +186,11 @@ with container_2:
     matriz['Média da carga viral mensal'] = matriz['Média da carga viral mensal'].astype(int)
 
     # Função para transformar os valores em inteiro e retornar os que estão em formato texto
-    # def conversao(valor):
-        # try:
-            # return int(float(valor))
-        # except ValueError:
-            # return valor
+    def conversao(valor):
+        try:
+            return int(float(valor))
+        except ValueError:
+            return valor
     
     # Função para verificar a presença de valores infinitos na coluna
     # def processamento_coluna(coluna): 
