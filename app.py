@@ -145,11 +145,12 @@ with container_2:
     # Definindo a altura e largura do gráfico
     fig.update_layout(
         width=1250,  # Definir uma largura fixa
-        height=560,  # Definir uma altura fixa
+        height=650,  # Definir uma altura fixa
     )
     
     # Plotando meu gráfico
     col1.plotly_chart(fig)
+    
     # Espaço em branco para ajustar o visual do painel
     col4.write("")
     col4.write("")
