@@ -69,7 +69,7 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 # Definindo o segundo container
 container_2 = st.container() 
-with container_2:
+with container_2.(border=True):
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     # Borda visual para o selectbox
     col1.markdown(
