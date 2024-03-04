@@ -65,31 +65,9 @@ municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', '
 # Formatando para o tipo data
 df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
 # Filtrando para o período selecionado
-df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
+#df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 # Transformando a a coluna carga viral para o tipo float
-df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
+#df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
-# Definindo subplots (gráficos secundários) 
-fig = make_subplots(specs=[[{"secondary_y": True}]])
-
-# Definindo o segundo container
-container_2 = st.container() 
-with container_2:
-    col1, col2, col3, col4 = st.columns([1,1,1,1])
-    # Borda visual para o selectbox
-    col1.markdown(
-        """
-        <style>
-            div[data-baseweb="select"] {
-                background-color: #FF0000;
-                color: white;
-                border-radius: 5px;
-            }
-            div[data-baseweb="select"] div {
-                border: none !important;
-            }
-        </style>
-        """, unsafe_allow_html=True
-    )
 
 
