@@ -231,7 +231,6 @@ with container_2:
          dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
-
     # URL que você deseja redirecionar
     painel = 'https://app.powerbi.com/view?r=eyJrIjoiNDcxNGU5YTItZTU5Mi00MDZkLTljNTMtZTBmZDk2NTAyNzNkIiwidCI6IjE1ZGNkOTA5LThkYzAtNDBlOS1hMWU1LWNlY2IwNTNjZGQxYSJ9'
     col2.link_button("Voltar para o Bi", painel)
