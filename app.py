@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state='collapsed'
 )
 
-def get_current_time():
+def data_atualizacao():
     return datetime.now().strftime("%d/%m/%Y")
 
 # Definindo o primeiro container
@@ -31,7 +31,7 @@ with container_1:
     # Adicionando as imagens ao painel e o meu título desejado, centralizando dele no meio do painel
     col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20CEVS.png?raw=true', width=200)
     col2.markdown("<h2 style='text-align: center;'>Painel de Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
-    col2.markdown(f"<p style='text-align: center;'>Atualizado em {get_current_time()}</p>", unsafe_allow_html=True)
+    col2.markdown(f"<p style='text-align: center;'>Atualizado em {data_atualizacao()}</p>", unsafe_allow_html=True)
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
   
 
