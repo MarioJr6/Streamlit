@@ -31,8 +31,9 @@ with container_1:
     # Adicionando as imagens ao painel e o meu título desejado, centralizando dele no meio do painel
     col1.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20CEVS.png?raw=true', width=200)
     col2.markdown("<h2 style='text-align: center;'>Painel de Monitoramento Ambiental de SARS-CoV-2</h2>", unsafe_allow_html=True)
+    col2.write(f"Atualizado em {get_current_time()}")
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
-    col1.write(f"Atualizado em {get_current_time()}")
+  
 
 # Função para tratamento dos meus dados contendo os casos de covid
 @st.cache_data
