@@ -10,6 +10,7 @@ import webbrowser
 
 from plotly.subplots import make_subplots
 from streamlit_extras.metric_cards import style_metric_cards
+from datetime import datetime
 
 # Configuração inicial padrão
 st.set_page_config(
