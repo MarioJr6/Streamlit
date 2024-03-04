@@ -72,3 +72,24 @@ df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 # Definindo subplots (gráficos secundários) 
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 
+# Definindo o segundo container
+container_2 = st.container() 
+with container_2:
+    col1, col2, col3, col4 = st.columns([1,1,1,1])
+    # Borda visual para o selectbox
+    col1.markdown(
+        """
+        <style>
+            div[data-baseweb="select"] 
+                background-color: #FF0000;
+                color: white;
+                border-radius: 5px;
+            }
+            div[data-baseweb="select"] div {
+                border: none !important;
+            }
+        </style>
+        """, unsafe_allow_html=True
+    )
+
+
