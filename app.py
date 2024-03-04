@@ -67,7 +67,7 @@ df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format
 # Filtrando para o período selecionado
 df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 # Transformando a a coluna carga viral para o tipo float
-#df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
+df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
 
 
