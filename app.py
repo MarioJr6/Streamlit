@@ -66,6 +66,7 @@ df_esgoto.dtypes
 
 # Formatando para o tipo data
 df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
+df_esgoto.dtypes
 # Filtrando para o período selecionado
 #df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 # Transformando a a coluna carga viral para o tipo float
