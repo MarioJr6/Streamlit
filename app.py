@@ -65,7 +65,7 @@ municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', '
 # Formatando para o tipo data
 df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
 # Filtrando para o período selecionado
-#df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
+df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 # Transformando a a coluna carga viral para o tipo float
 #df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
