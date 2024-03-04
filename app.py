@@ -91,5 +91,10 @@ with container_2:
         </style>
         """, unsafe_allow_html=True
     )
+    
+    # Selectbox para selecionar o município
+    muni = col1.selectbox('Selecione o município', municipio)
 
+    # Criando o filtro que utilizarei como base para os meus dados
+    filtro = df_esgoto['Município']==muni
 
