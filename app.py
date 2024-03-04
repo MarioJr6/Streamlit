@@ -69,5 +69,6 @@ df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 # Transformando a a coluna carga viral para o tipo float
 df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
-
+# Definindo subplots (gráficos secundários) 
+fig = make_subplots(specs=[[{"secondary_y": True}]])
 
