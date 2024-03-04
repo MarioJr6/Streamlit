@@ -62,8 +62,6 @@ df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfj
 # Municípios que usarei como filtro
 municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', 'SANTA ROSA', 'TORRES']
 
-df_esgoto.dtypes
-
 # Formatando para o tipo data
 df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
 # Filtrando para o período selecionado
@@ -93,4 +91,5 @@ with container_2:
         </style>
         """, unsafe_allow_html=True
     )
+
 
