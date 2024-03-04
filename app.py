@@ -21,7 +21,7 @@ st.set_page_config(
 )
 
 def get_current_time():
-    return datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    return datetime.now().strftime("%d/%m/%Y")
 
 # Definindo o primeiro container
 container_1 = st.container()
