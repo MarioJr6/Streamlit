@@ -243,4 +243,4 @@ with container_2:
          dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
-    df_casos_2024
+ 
