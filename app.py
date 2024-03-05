@@ -65,10 +65,21 @@ municipio = ['CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO', 'SANTA MARIA', '
 
 # Formatando para o tipo data
 df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format='%d/%m/%Y')
+
 # Filtrando para o período selecionado
 df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
+
 # Transformando a a coluna carga viral para o tipo float
 df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
+
+###### DADOS 2024 ######
+
+df_casos_2024['DATA_SINTOMAS']=pd.to_datetime(df_casos_2024['DATA_SINTOMAS'], format='%d/%m/%Y')
+df_casos_2024['DATA_CONFIRMACAO']=pd.to_datetime(df_casos_2024['DATA_CONFIRMACAO'], format='%d/%m/%Y')
+
+grouped_2024 = pd.pivot_table(data=df_casos_2024, index='DATA_SINTOMAS', columns='MUNICIPIO', values='CRITERIO', aggfunc='count').fillna(0).reset_index()
+     
+###### DADOS 2024 ######
 
 # Definindo subplots (gráficos secundários) 
 fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -77,7 +88,6 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
-    df_casos_2024
     # Borda visual para o selectbox
     col1.markdown(
         """
@@ -106,8 +116,10 @@ with container_2:
 
     # Copiando minha base de dados filtrada para realizar as mudanças
     df_esgoto2 = df_esgoto_filtrado.copy()
+    
     # Transformando o tipo de dado da coluna para string
     df_esgoto2['Data de coleta'] = df_esgoto2['Data de coleta'].astype(str)
+    
     # Criando uma lista com as datas de coleta
     lista = df_esgoto2['Data de coleta'].tolist()
 
@@ -118,7 +130,6 @@ with container_2:
         data_ordenada = '-'.join(reversed(partes))
         lista_formatada.append(data_ordenada)
 
-    # valor_formatado = int(df_casos_filtrado.tail(7).sum())
     # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
     col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = int(df_casos_filtrado.tail(7).sum()))
@@ -135,12 +146,14 @@ with container_2:
       go.Scatter(x=df_casos['DATA_SINTOMAS'], y=df_casos[muni], name="Casos confirmados", mode="lines"),
       secondary_y=True,
     )
+    
     # Utilizando minha carga viral para ser a barra do gráfico
     fig = fig.add_trace(
           go.Bar(x=df_esgoto_filtrado['Data de coleta'], y=df_esgoto_filtrado['carga_viral_n1'], name="Carga viral N1 (cópias genômicas/L)",
           marker=dict(color='red')),
           secondary_y=False, 
     )
+    
     # Texto do gráfico
     fig = fig.update_layout(
           title_text="Carga viral no esgoto bruto e Casos de COVID 19"
