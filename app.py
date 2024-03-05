@@ -78,6 +78,8 @@ df_casos_2024['DATA_SINTOMAS'] = pd.to_datetime(df_casos_2024['DATA_SINTOMAS'])
 df_casos_2024['DATA_CONFIRMACAO'] = pd.to_datetime(df_casos_2024['DATA_CONFIRMACAO'])
 
 grouped_2024 = pd.pivot_table(data = df_casos_2024, index = 'DATA_SINTOMAS', columns = 'MUNICIPIO', values = 'CRITERIO', aggfunc = 'count').fillna(0).reset_index()
+
+df_concatenado = pd.concat([df_casos, df_casos_2024], ignore_index=True)
      
 ###### DADOS 2024 ######
 
@@ -88,8 +90,7 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
-    grouped_2024
-    df_casos
+    df_concatenado
     # Borda visual para o selectbox
     col1.markdown(
         """
