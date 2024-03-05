@@ -92,6 +92,7 @@ with container_2:
     df_casos_2024
     df_casos_2024.dtypes
     df_casos
+    df_casos.dtypes
     
     # Borda visual para o selectbox
     col1.markdown(
