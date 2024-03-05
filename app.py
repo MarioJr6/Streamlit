@@ -89,7 +89,7 @@ container_2 = st.container()
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     grouped_2024
-    grouped
+    df_casos
     # Borda visual para o selectbox
     col1.markdown(
         """
