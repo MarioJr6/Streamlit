@@ -79,7 +79,7 @@ df_casos_2024['DATA_CONFIRMACAO'] = pd.to_datetime(df_casos_2024['DATA_CONFIRMAC
 
 grouped_2024 = pd.pivot_table(data = df_casos_2024, index = 'DATA_SINTOMAS', columns = 'MUNICIPIO', values = 'CRITERIO', aggfunc = 'count').fillna(0).reset_index()
 
-df_concatenado = pd.concat([df_casos, df_casos_2024], ignore_index=True)
+df_concatenado = pd.concat([df_casos, grouped_2024], ignore_index=True)
      
 ###### DADOS 2024 ######
 
