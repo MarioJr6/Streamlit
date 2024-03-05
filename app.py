@@ -74,8 +74,8 @@ df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
 
 ###### DADOS 2024 ######
 
-df_casos_2024['DATA_SINTOMAS']=pd.to_datetime(df_casos_2024['DATA_SINTOMAS'], format='%d/%m/%Y')
-df_casos_2024['DATA_CONFIRMACAO']=pd.to_datetime(df_casos_2024['DATA_CONFIRMACAO'], format='%d/%m/%Y')
+#df_casos_2024['DATA_SINTOMAS']=pd.to_datetime(df_casos_2024['DATA_SINTOMAS'], format='%d/%m/%Y')
+#df_casos_2024['DATA_CONFIRMACAO']=pd.to_datetime(df_casos_2024['DATA_CONFIRMACAO'], format='%d/%m/%Y')
 
 #grouped_2024 = pd.pivot_table(data=df_casos_2024, index='DATA_SINTOMAS', columns='MUNICIPIO', values='CRITERIO', aggfunc='count').fillna(0).reset_index()
      
@@ -88,6 +88,10 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
+    
+    df_casos_2024
+    df_casos_2024.dtypes
+    
     # Borda visual para o selectbox
     col1.markdown(
         """
