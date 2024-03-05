@@ -48,17 +48,6 @@ def funcao_covid(url):
     grouped = grouped[colunas]
     
     return grouped
-
-def funcao_covid_2024(url_2024):
-    df_casos_2024 = pd.read_csv(url_2024, sep=";")
-    df_casos_2024['DATA_SINTOMAS']=pd.to_datetime(df_casos_2024['DATA_SINTOMAS'], format='%d/%m/%Y')
-    df_casos_2024['DATA_CONFIRMACAO']=pd.to_datetime(df_casos_2024['DATA_CONFIRMACAO'], format='%d/%m/%Y')
-    
-    df_casos_2024.drop(columns=['ANO_SINTOMAS'], inplace=True)
-
-    grouped_2024 = pd.pivot_table(data = df_casos_2024, index = 'DATA_SINTOMAS', columns = 'MUNICIPIO', values = 'CRITERIO', aggfunc='count').fillna(0).reset_index()
-    
-    return grouped_2024
     
 # Dicionário dos meses
 meses = { 1: 'Janeiro', 2: 'Fevereiro', 3: 'Março',
@@ -68,7 +57,7 @@ meses = { 1: 'Janeiro', 2: 'Fevereiro', 3: 'Março',
 
 # Realizando a leitura dos dados para utilizar no painel
 df_casos = funcao_covid('https://ti.saude.rs.gov.br/covid19/download?2023')
-df_casos_2024 = funcao_covid_2024('https://drive.google.com/uc?export=download&id=1-51L8jzYrfi5YcerwMruxEgI99Q5TFgZ')
+df_casos_2024 = pd.read_csv('https://drive.google.com/uc?export=download&id=1-51L8jzYrfi5YcerwMruxEgI99Q5TFgZ',sep=';')
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
 
 # Municípios que usarei como filtro
