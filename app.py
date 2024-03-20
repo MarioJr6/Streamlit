@@ -57,7 +57,7 @@ meses = { 1: 'Janeiro', 2: 'Fevereiro', 3: 'Março',
 
 # Realizando a leitura dos dados para utilizar no painel
 df_casos = funcao_covid('https://ti.saude.rs.gov.br/covid19/download?2023')
-df_casos_2024 = pd.read_csv('https://drive.google.com/file/d/1BmEM4iTkomFwbwLH0_jNX7jj4Cj83NHY/view?usp=sharing', encoding="UTF-8", sep=";")
+df_casos_2024 = pd.read_csv('https://drive.google.com/uc?export=download&id=1BmEM4iTkomFwbwLH0_jNX7jj4Cj83NHY', encoding="UTF-8", sep=";")
 df_esgoto = pd.read_table('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZfjxdY8_x5WNd9_NE3QQPeche-dMdY5KdvNpq8H4W-lmUTidwrKpV0uLzLtihV7UAPIl68WvugMsN/pub?gid=0&single=true&output=tsv')
 
 # Municípios que usarei como filtro
