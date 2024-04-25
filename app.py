@@ -70,7 +70,7 @@ df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format
 df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 
 # Transformando a a coluna carga viral para o tipo float
-df_esgoto['carga_viral_n1'] = df_esgoto['carga_viral_n1'].astype(float)
+df_esgoto['carga_viral_n1'] = pd.to_numeric(df_esgoto['carga_viral_n1'], errors='coerce')
 
 ###### DADOS 2024 ######
 
@@ -248,3 +248,4 @@ with container_2:
          dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
     ]
     ))
+
