@@ -1,10 +1,13 @@
-# Importando as bibliotecas necessárias
+# Importando as bibliotecas para utilizar no desenvolvimento do painel
 import streamlit as st
 import pandas as pd
 import requests
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit_extras
 import numpy as np
+import webbrowser
+
 from plotly.subplots import make_subplots
 from streamlit_extras.metric_cards import style_metric_cards
 from datetime import datetime
@@ -12,12 +15,11 @@ from datetime import datetime
 # Configuração inicial padrão
 st.set_page_config(
     page_title="Painel de Monitoramento Ambiental de SARS-CoV-2",
-    page_icon=":chart_with_upwards_trend:",
+    page_icon="	:chart_with_upwards_trend:",
     layout="wide",
     initial_sidebar_state='collapsed'
 )
 
-# Função para obter a data de atualização
 def data_atualizacao():
     return datetime.now().strftime("%d/%m/%Y")
 
@@ -32,14 +34,14 @@ with container_1:
     col2.markdown(f"<p style='text-align: center;'>Atualizado em {data_atualizacao()}</p>", unsafe_allow_html=True)
     col3.image('https://github.com/MarioJr6/MonitoramentoAmbiental/blob/main/Logo%20Estado.png?raw=true', width=300)
 
-# Função para tratamento dos dados contendo os casos de COVID-19
+# Função para tratamento dos meus dados contendo os casos de covid
 @st.cache_data
 def funcao_covid(url):
     df_casos = pd.read_csv(url, encoding="UTF-8", sep=";")
     df_casos['DATA_SINTOMAS']=pd.to_datetime(df_casos['DATA_SINTOMAS'], format='%d/%m/%Y')
     df_casos['DATA_CONFIRMACAO']=pd.to_datetime(df_casos['DATA_CONFIRMACAO'], format='%d/%m/%Y')
 
-    # Agrupando os dados de forma que eu tenha todas as datas do ano
+  # Agrupando os dados de forma que eu tenha todas as datas do ano
     grouped = pd.pivot_table(data=df_casos, index='DATA_SINTOMAS', columns='MUNICIPIO', values='CRITERIO', aggfunc='count').fillna(0).reset_index()
     colunas = ['DATA_SINTOMAS', 'CAPÃO DA CANOA', 'CAXIAS DO SUL', 'PASSO FUNDO',
            'SANTA MARIA', 'SANTA ROSA', 'TORRES']
@@ -67,8 +69,19 @@ df_esgoto['Data de coleta'] = pd.to_datetime(df_esgoto['Data de coleta'], format
 # Filtrando para o período selecionado
 df_esgoto = df_esgoto[df_esgoto['Data de coleta']>='2023-01-01']
 
-# Convertendo a coluna 'carga_viral_n1' para float, tratando valores não numéricos
+# Transformando a a coluna carga viral para o tipo float
 df_esgoto['carga_viral_n1'] = pd.to_numeric(df_esgoto['carga_viral_n1'], errors='coerce')
+
+###### DADOS 2024 ######
+
+df_casos_2024['DATA_SINTOMAS'] = pd.to_datetime(df_casos_2024['DATA_SINTOMAS'])
+df_casos_2024['DATA_CONFIRMACAO'] = pd.to_datetime(df_casos_2024['DATA_CONFIRMACAO'])
+
+grouped_2024 = pd.pivot_table(data = df_casos_2024, index = 'DATA_SINTOMAS', columns = 'MUNICIPIO', values = 'CRITERIO', aggfunc = 'count').fillna(0).reset_index()
+
+df_casos = pd.concat([df_casos, grouped_2024], ignore_index=True)
+     
+###### DADOS 2024 ######
 
 # Definindo subplots (gráficos secundários) 
 fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -77,7 +90,6 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 container_2 = st.container() 
 with container_2:
     col1, col2, col3, col4 = st.columns([1,1,1,1])
-    
     # Borda visual para o selectbox
     col1.markdown(
         """
@@ -120,15 +132,11 @@ with container_2:
         data_ordenada = '-'.join(reversed(partes))
         lista_formatada.append(data_ordenada)
 
-    # Métricas para as informações desejadas no painel, distribuídas nas colunas estabelecidas
-    col2.metric(label = "Casos de COVID-19 confirmados nos últimos 7 dias", 
+    # Métricas para as informações desejadas no painel, distribuidas nas colunas estabelecidas
+    col2.metric(label = "Casos de COVID 19 confirmados nos últimos 7 dias", 
                 value = int(df_casos_filtrado.tail(7).sum()))
-    
-    # Lidando com valores não numéricos na coluna 'carga_viral_n1'
-    value = int(df_esgoto_filtrado['carga_viral_n1'].iloc[-1])
-    col3.metric(label = "Carga Viral de SARS-CoV-2 na última amostra de esgoto", 
-                value = value)
-    
+    col3.metric(label = "Carga Viral de SARS-CoV-2 na ultima amostra de esgoto", 
+                value = int(df_esgoto_filtrado['carga_viral_n1'].iloc[-1]))
     col4.metric(label = "Data da última análise ambiental", 
                 value = lista_formatada[-1])
     
@@ -150,7 +158,7 @@ with container_2:
     
     # Texto do gráfico
     fig = fig.update_layout(
-          title_text="Carga viral no esgoto bruto e Casos de COVID-19"
+          title_text="Carga viral no esgoto bruto e Casos de COVID 19"
     )
 
     # Ajustando a configuração dos eixos do gráfico
@@ -171,7 +179,7 @@ with container_2:
     col4.write("")
     col4.write("")
 
-    # Informativo do laboratório das análises e do município selecionado no filtro
+    # Iformativo do laboratório das análises e do muni selecionado no filtro
     col4.write("Análises ambientais realizadas pelo Laboratório de Virologia do ICBS UFRGS")
     col4.write('Município selecionado: {}'.format(muni))
 
@@ -212,4 +220,31 @@ with container_2:
     def processamento_coluna(coluna): 
         resultado = []
         for valor in coluna: 
-            if isinstance(valor, (int, float)) and not np.is
+            if isinstance(valor, (int, float)) and not np.isinf(valor):
+                resultado.append(f"{valor:.1f}%")
+            elif isinstance(valor, str): 
+                resultado.append(valor)
+            else: 
+                resultado.append('Indefinido')
+        return resultado
+   
+    # Aplicando as funções
+    matriz['Variação absoluta'] = matriz['Variação absoluta'].apply(conversao)
+    matriz['Coluna teste'] = processamento_coluna(matriz['Variação em porcentagem'])
+    
+    # Dropando e renomeando as colunas
+    matriz = matriz.drop('Variação em porcentagem', axis=1)
+    matriz = matriz.rename(columns={'Coluna teste':'Variação em porcentagem'})
+
+    # Definindo o mês por extenso
+    matriz['Mês'] = matriz['Mês'].map(meses)
+
+    # Plotando a tabela
+    
+    matriz_ = matriz.reset_index(drop=True)
+    col4.table(matriz_.style.set_table_styles(
+    [
+         dict(selector="thead th", props=[("background-color", "#3498db"), ("color", "white")]),
+         dict(selector="tbody td", props=[("border", "1px solid #dddddd")]),
+    ]
+    ))
